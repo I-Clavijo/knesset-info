@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { ThemeModeScript } from "flowbite-react";
+import "../styles/globals.css";
+import { DarkThemeToggle, Flowbite, ThemeModeScript } from "flowbite-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,14 +25,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he">
-      <head>
-        <ThemeModeScript />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <Flowbite>
+        <head>
+          <ThemeModeScript />
+        </head>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          {children}
+          <DarkThemeToggle />
+        </body>
+      </Flowbite>
     </html>
   );
 }
