@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
-import { DarkThemeToggle, Flowbite, ThemeModeScript } from "flowbite-react";
+import { Flowbite, ThemeModeScript } from "flowbite-react";
+import NavbarContainer from "../containers/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,16 +25,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he">
+    <html lang="he" dir="rtl" suppressHydrationWarning>
       <Flowbite>
         <head>
+          {/* This script is necessary for dark mode to work */}
           <ThemeModeScript />
         </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+          {/* Navbar with DarkThemeToggle */}
+          <NavbarContainer />
+
+          {/* Main content */}
           {children}
-          <DarkThemeToggle />
+
+          {/* DarkThemeToggle button */}
+          <div className="fixed bottom-4 right-4"></div>
         </body>
       </Flowbite>
     </html>
