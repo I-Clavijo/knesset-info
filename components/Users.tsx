@@ -26,6 +26,7 @@ export default function Users() {
           setError("Failed to fetch users");
         }
       } catch (err) {
+        console.error(err);
         setError("Error loading users");
       } finally {
         setLoading(false);
