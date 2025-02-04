@@ -11,6 +11,7 @@ export async function GET() {
     
     return NextResponse.json({ success: true, data: users });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { success: false, error: "Failed to fetch users" },
       { status: 500 }
@@ -30,6 +31,7 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { success: false, error: "Failed to create user" },
       { status: 500 }
