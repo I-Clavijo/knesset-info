@@ -39,14 +39,21 @@ const BillCard: React.FC<Bill> = ({
           <p className="font-normal text-gray-700 dark:text-gray-400">
             {summary}
           </p>
+          <p className="font-normal text-gray-700 dark:text-gray-400">
+            קטגוריה: {category}
+          </p>
+          <p className="font-normal text-gray-700 dark:text-gray-400">
+            יזמים: {initiators.join(", ")}
+          </p>
+
           <div className="dark:text-white">
             <div className="flex items-center gap-2">
               <span>{votesUp}</span>
-              <span>הצביעו בעד</span>
+              <span>אזרחים הצביעו בעד</span>
             </div>
             <div className="flex items-center gap-2">
               <span>{votesDown}</span>
-              <span>הצביעו נגד</span>
+              <span>אזרחים הצביעו נגד</span>
             </div>
             <div className="flex items-center gap-2">
               <span>{comments}</span>
