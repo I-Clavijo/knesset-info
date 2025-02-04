@@ -1,10 +1,10 @@
-"use client";
+/*"use client";
 
 import React from "react";
 import { useRouter } from "next/navigation";
 
 export default function BillPage({ params }: { params: { billID: number } }) {
-  /*const router = useRouter();
+  const router = useRouter();
   const billID = router.query;
   console.log(billID);
 
@@ -15,4 +15,3 @@ export default function BillPage({ params }: { params: { billID: number } }) {
   );
 }
 */
-}
