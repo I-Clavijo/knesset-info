@@ -1,5 +1,7 @@
-// components/Hero.tsx
+"use client";
+
 import React from "react";
+import { TypeAnimation } from "react-type-animation";
 
 const Hero: React.FC = () => {
   return (
@@ -11,14 +13,29 @@ const Hero: React.FC = () => {
         loop
         muted
       />
-      <div className="p-10 relative z-10 flex items-center justify-center w-full h-full bg-black bg-opacity-20">
-        <div className="text-center text-white ">
+      <div className="p-10 relative z-10 flex items-center  w-full h-full bg-black bg-opacity-20">
+        <div className=" text-white mr-20">
           <h1 className="text-4xl font-bold md:text-5xl lg:text-6xl">
             עצבו את עתיד החקיקה
           </h1>
-          <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl ">
-            גלו הצעות חוק, שתפו את דעתכם והצביעו על חוקים שחשובים לכם
-          </h2>
+          <TypeAnimation
+            sequence={[
+              "גלו הצעות חוק",
+              2000,
+              "שתפו את דעתכם",
+              2000,
+              "הצביעו על חוקים",
+              2000,
+            ]}
+            wrapper="span"
+            speed={50}
+            style={{
+              color: "light-grey",
+              fontSize: "2.5em",
+              display: "inline-block",
+            }}
+            repeat={Infinity}
+          />
         </div>
       </div>
     </div>

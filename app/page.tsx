@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 import Hero from "../components/Hero";
 import BillCard from "../components/BillCard";
 import Footer from "../containers/Footer";
-import Users from "../components/Users";
+//import Users from "../components/Users";
+import { useInitiateData } from "../hooks/useInitiateData";
 
 const bill1 = {
   id: 1,
@@ -18,12 +21,13 @@ const bill1 = {
 };
 
 export default function Home() {
+  useInitiateData();
+
   return (
     <div>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Hero />
         <BillCard {...bill1} />
-        <Users />
       </main>
       <Footer />
     </div>
