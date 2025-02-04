@@ -11,15 +11,14 @@ const Hero: React.FC = () => {
         loop
         muted
       />
-      <div className="relative z-10 flex items-center justify-center w-full h-full bg-black bg-opacity-20">
+      <div className="p-10 relative z-10 flex items-center justify-center w-full h-full bg-black bg-opacity-20">
         <div className="text-center text-white ">
           <h1 className="text-4xl font-bold md:text-5xl lg:text-6xl">
             עצבו את עתיד החקיקה
           </h1>
-          <p className="mt-4 text-lg md:text-xl">
-            גלו הצעות חוק, שתפו את דעתכם והצביעו על חוקים שחשובים לכם.
-          </p>
-
+          <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl ">
+            גלו הצעות חוק, שתפו את דעתכם והצביעו על חוקים שחשובים לכם
+          </h2>
         </div>
       </div>
     </div>
