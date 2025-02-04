@@ -12,7 +12,7 @@ async function dbConnect() {
   };
 
   // Establish a new connection every time
-  const conn = await mongoose.connect(MONGODB_URI!, opts);
+  const conn = await mongoose.connect(MONGODB_URI as string, opts);
   return conn;
 }
 
