@@ -6,7 +6,14 @@ import Footer from "../containers/Footer";
 const bill1 = {
   id: 1,
   name: "חוק הגיוס",
-  amount: 120,
+  summary:
+    " חוק הגיוס מאפשר לממשלה להגייס חיילים עבור צרכי המדינהגשדגשדגשדגשדגשדגשדגשג שדג",
+  initiators: ["משה כחלון", "אבי ניסנקורן"],
+  category: "צבא וביטחון",
+  date: "2021-12-31",
+  votesUp: 100,
+  votesDown: 20,
+  comments: 10,
 };
 
 export default function Home() {
