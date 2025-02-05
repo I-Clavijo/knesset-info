@@ -2,6 +2,7 @@
 
 import { Card, Button } from "flowbite-react";
 import Link from "next/link";
+import React from "react";
 
 interface Bill {
   id: number;
@@ -45,6 +46,14 @@ const BillCard: React.FC<Bill> = ({
           <p className="font-normal text-gray-700 dark:text-gray-400">
             יזמים: {initiators.join(", ")}
           </p>
+          <div className="grid grid-cols-2 gap-4 mt-4">
+            {initiators.map((initiator) => (
+              <div
+                key={initiator}
+                className="flex items-center space-x-4"
+              ></div>
+            ))}
+          </div>
 
           <div className="dark:text-white">
             <div className="flex items-center gap-2">
