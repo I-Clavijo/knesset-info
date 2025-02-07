@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '../../lib/db';
 import Bill from '../../lib/models/Bill';
-import axios from 'axios';
 
 export async function GET() {
 
