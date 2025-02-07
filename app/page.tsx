@@ -110,13 +110,11 @@ export default function Home() {
   useInitiateData();
   const { mode, setMode } = useThemeMode(); // Use the hook
 
-  if (typeof window !== "undefined") {
-    // Check if window is defined (client-side)
-    if (!localStorage.getItem("theme")) {
-      // Check if 'theme' key exists in localStorage
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && !localStorage.getItem("theme")) {
       setMode("dark");
     }
-  }
+  }, [setMode]);
 
   return (
     <div>
