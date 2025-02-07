@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
-import { CustomFlowbiteTheme, Flowbite, ThemeModeScript } from "flowbite-react";
+import { Flowbite } from "flowbite-react";
 import NavbarContainer from "../containers/Navbar";
 
 export const metadata: Metadata = {
@@ -13,35 +13,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const customTheme: CustomFlowbiteTheme = {
-    navbar: {
-      root: {
-        base: "bg-white px-2 py-2.5 dark:border-gray-700 dark:bg-gray-800 sm:px-4",
-        rounded: {
-          on: "rounded",
-          off: "",
-        },
-        bordered: {
-          on: "border",
-          off: "",
-        },
-        inner: {
-          base: "mx-auto flex flex-wrap items-center justify-between",
-          fluid: {
-            on: "",
-            off: "container",
-          },
-        },
-      },
-    },
-  };
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning>
-      <Flowbite theme={{ theme: customTheme, mode: "dark" }}>
-        <head>
-          {/* This script is necessary for dark mode to work */}
-          <ThemeModeScript mode="dark" />
-        </head>
+      <Flowbite theme={{ mode: "dark" }}>
+        <head>{/* This script is necessary for dark mode to work */}</head>
         <body className="bg-gray-50 dark:bg-gray-900">
           {/* Navbar with DarkThemeToggle */}
           <NavbarContainer />
