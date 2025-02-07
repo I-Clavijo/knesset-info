@@ -59,7 +59,9 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
       >
         {categories.map((category) => (
           <div key={category.id}>
-            <Button className="m-1 dark:bg-gray-800">{category.name}</Button>
+            <Button className="m-1 h-10 whitespace-nowrap dark:bg-gray-800">
+              {category.name}
+            </Button>
           </div>
         ))}
       </div>
@@ -67,7 +69,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
         <>
           <Button
             onClick={() => scroll("left")}
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-opacity-75 rounded-full  dark:bg-gray-800 shadow-md h-12 w-8 flex items-center justify-center"
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-opacity-75 rounded-full dark:bg-gray-800 shadow-md w-8 flex items-center justify-center"
             aria-label="Scroll left"
           >
             <svg
