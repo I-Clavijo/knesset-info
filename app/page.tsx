@@ -2,11 +2,12 @@
 
 import React from "react";
 import Hero from "../components/Hero";
-import BillCard from "../components/BillCard";
+//import BillCard from "../components/BillCard";
 import Footer from "../containers/Footer";
 //import Users from "../components/Users";
 import { useInitiateData } from "../hooks/useInitiateData";
 import BillCardGrid from "../components/BillCardGrid";
+import Categories from "@/components/Categories";
 
 const bills = [
   {
@@ -83,13 +84,30 @@ const bills = [
   },
 ];
 
+const myCategories = [
+  { id: "1", name: "Category 1" },
+  { id: "2", name: "Category 2" },
+  { id: "3", name: "Category 3" },
+  { id: "4", name: "Category 1" },
+  { id: "5", name: "Category 2" },
+  { id: "6", name: "Category 3" },
+  { id: "7", name: "Category 1" },
+  { id: "8", name: "Category 2" },
+  { id: "9", name: "Category 3" },
+
+  { id: "10", name: "Category 10" },
+  { id: "11", name: "Category 11" },
+  { id: "12", name: "Category 12" },
+];
+
 export default function Home() {
   useInitiateData();
 
   return (
     <div>
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+      <main className="flex flex-col gap-8 items-center w-full">
         <Hero />
+        <Categories categories={myCategories} />
         <BillCardGrid bills={bills} />
         {/*<BillCard {...bill1} />*/}
       </main>
