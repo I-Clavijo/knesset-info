@@ -1,6 +1,6 @@
 "use client";
 
-import { Navbar } from "flowbite-react";
+import { DarkThemeToggle, Navbar } from "flowbite-react";
 
 export default function NavbarContainer() {
   return (
@@ -14,6 +14,7 @@ export default function NavbarContainer() {
           info
         </span>
       </Navbar.Brand>
+      <DarkThemeToggle />
       <Navbar.Toggle />
       <Navbar.Collapse>
         <p></p>

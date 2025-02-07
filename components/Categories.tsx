@@ -50,7 +50,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
       <div
         ref={scrollContainerRef}
         className={`flex m-3 ${
-          isMobile ? "mx-4" : "mx-9"
+          isMobile ? "mx-4" : "mx-11"
         } overflow-x-auto scrollbar-hide`}
         style={{
           scrollbarWidth: "none",
@@ -59,7 +59,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
       >
         {categories.map((category) => (
           <div key={category.id}>
-            <Button className="m-1">{category.name}</Button>
+            <Button className="m-1 dark:bg-gray-800">{category.name}</Button>
           </div>
         ))}
       </div>
@@ -67,7 +67,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
         <>
           <Button
             onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-opacity-75 rounded-full shadow-md h-12 w-8 flex items-center justify-center"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-opacity-75 rounded-full  dark:bg-gray-800 shadow-md h-12 w-8 flex items-center justify-center"
             aria-label="Scroll left"
           >
             <svg
@@ -88,7 +88,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
 
           <Button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-opacity-75 rounded-full shadow-md h-12 w-8 flex items-center justify-center"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-opacity-75  dark:bg-gray-800 rounded-full shadow-md h-12 w-8 flex items-center justify-center"
             aria-label="Scroll right"
           >
             <svg
