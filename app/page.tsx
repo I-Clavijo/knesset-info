@@ -94,10 +94,15 @@ const myCategories = [
   { id: "7", name: "Category 1" },
   { id: "8", name: "Category 2" },
   { id: "9", name: "Category 3" },
-
   { id: "10", name: "Category 10" },
   { id: "11", name: "Category 11" },
   { id: "12", name: "Category 12" },
+  { id: "13", name: "Category 10" },
+  { id: "14", name: "Category 11" },
+  { id: "15", name: "Category 12" },
+  { id: "16", name: "Category 10" },
+  { id: "17", name: "Category 11" },
+  { id: "18", name: "Category 12" },
 ];
 
 export default function Home() {
@@ -105,7 +110,7 @@ export default function Home() {
 
   return (
     <div>
-      <main className="flex flex-col gap-8 items-center w-full">
+      <main className="flex flex-col items-center w-full">
         <Hero />
         <Categories categories={myCategories} />
         <BillCardGrid bills={bills} />

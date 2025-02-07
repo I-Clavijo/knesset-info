@@ -12,7 +12,7 @@ interface CategoriesProps {
   categories: Category[];
 }
 
-const SCROLL_AMOUNT = 800;
+const SCROLL_AMOUNT = 500;
 
 const Categories: React.FC<CategoriesProps> = ({ categories }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -32,10 +32,10 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
   };
 
   return (
-    <div className="relative w-full max-w-screen-xl mx-auto px-4">
+    <div className="relative w-full max-w-screen-xl mx-auto ">
       <div
         ref={scrollContainerRef}
-        className="flex overflow-x-auto scrollbar-hide"
+        className="flex m-2 ml-10 mr-10 overflow-x-auto scrollbar-hide"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -47,10 +47,9 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
           </div>
         ))}
       </div>
-
-      <button
+      <Button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 rounded-full p-2 shadow-md"
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-opacity-75 rounded-full shadow-md h-12 w-8 flex items-center justify-center"
         aria-label="Scroll left"
       >
         <svg
@@ -67,11 +66,11 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-      </button>
+      </Button>
 
-      <button
+      <Button
         onClick={() => scroll("right")}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 rounded-full p-2 shadow-md"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-opacity-75 rounded-full shadow-md h-12 w-8 flex items-center justify-center"
         aria-label="Scroll right"
       >
         <svg
@@ -88,7 +87,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
             d="M9 5l7 7-7 7"
           />
         </svg>
-      </button>
+      </Button>
     </div>
   );
 };

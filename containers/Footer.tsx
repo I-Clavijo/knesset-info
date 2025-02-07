@@ -4,7 +4,7 @@ import { Footer } from "flowbite-react";
 
 export default function FooterContainer() {
   return (
-    <Footer container className="rounded-none ">
+    <Footer container className="rounded-none mt-4">
       <Footer.Copyright href="#" by=" כנסת info" year={2025} />
       {/*<Footer.LinkGroup>
         <Footer.Link href="#">About</Footer.Link>
