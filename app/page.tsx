@@ -8,7 +8,6 @@ import Footer from "../containers/Footer";
 import { useInitiateData } from "../hooks/useInitiateData";
 import BillCardGrid from "../components/BillCardGrid";
 import Categories from "@/components/Categories";
-import { ThemeModeScript } from "flowbite-react";
 
 const bills = [
   {
@@ -115,7 +114,6 @@ export default function Home() {
     <div>
       <main className="flex flex-col items-center w-full">
         <Hero />
-        <ThemeModeScript mode="dark" />
         <Categories categories={myCategories} />
         <BillCardGrid bills={bills} />
         {/*<BillCard {...bill1} />*/}
