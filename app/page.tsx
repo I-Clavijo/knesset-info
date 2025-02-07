@@ -108,9 +108,6 @@ const myCategories = [
 
 export default function Home() {
   useInitiateData();
-  
-
-
 
   return (
     <div>

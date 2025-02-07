@@ -23,9 +23,6 @@ export default function RootLayout({
 
           {/* Main content */}
           {children}
-
-          {/* DarkThemeToggle button */}
-          <div className="fixed bottom-4 right-4"></div>
         </body>
       </Flowbite>
     </html>
