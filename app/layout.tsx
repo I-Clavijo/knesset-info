@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
-import { Flowbite, ThemeModeScript } from "flowbite-react";
+import { Flowbite } from "flowbite-react";
 import NavbarContainer from "../containers/Navbar";
 
 export const metadata: Metadata = {
