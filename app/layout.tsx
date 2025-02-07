@@ -14,11 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl"  suppressHydrationWarning>
+    <html lang="he" dir="rtl" suppressHydrationWarning>
       <Flowbite theme={{ mode: "dark" }}>
         <head>
           {/* This script is necessary for dark mode to work */}
-          <ThemeModeScript />
+          {/*<ThemeModeScript />*/}
         </head>
         <body className="bg-gray-50 dark:bg-gray-900">
           {/* Navbar with DarkThemeToggle */}
