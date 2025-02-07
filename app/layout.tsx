@@ -20,9 +20,7 @@ export default function RootLayout({
           <ThemeModeScript mode="dark" />
         </head>
         <body className="bg-gray-50 dark:bg-gray-900">
-          {/* Navbar with DarkThemeToggle */}
           <NavbarContainer />
-          {/* Main content */}
           {children}
         </body>
       </Flowbite>

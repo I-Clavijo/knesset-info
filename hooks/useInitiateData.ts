@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-export function useInitiateData() {
+export default function useInitiateData() {
     useEffect(() => {
         const populateDatabase = async () => {
             try {
