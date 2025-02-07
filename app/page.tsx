@@ -8,7 +8,7 @@ import Footer from "../containers/Footer";
 import { useInitiateData } from "../hooks/useInitiateData";
 import BillCardGrid from "../components/BillCardGrid";
 import Categories from "@/components/Categories";
-import { ThemeModeScript, useThemeMode } from "flowbite-react";
+import { ThemeModeScript } from "flowbite-react";
 
 const bills = [
   {
@@ -108,19 +108,15 @@ const myCategories = [
 
 export default function Home() {
   useInitiateData();
-  const { mode, setMode } = useThemeMode(); // Use the hook
+  
 
-  React.useEffect(() => {
-    if (typeof window !== "undefined" && !localStorage.getItem("theme")) {
-      setMode("dark");
-    }
-  }, [setMode]);
+
 
   return (
     <div>
       <main className="flex flex-col items-center w-full">
         <Hero />
-        <ThemeModeScript mode={mode} />
+        <ThemeModeScript mode="dark" />
         <Categories categories={myCategories} />
         <BillCardGrid bills={bills} />
         {/*<BillCard {...bill1} />*/}
