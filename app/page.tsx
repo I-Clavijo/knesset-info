@@ -25,8 +25,8 @@ export default function Home() {
       ...bill,
       Category:
         typeof bill.Category === "number"
-          ? bill.Category
-          : parseInt(categoryMap[bill.Category]) || bill.Category,
+          ? categoryMap[bill.Category] || bill.Category // Use category name from map
+          : bill.Category, // Keep original category if not a number
     }));
 
   return (

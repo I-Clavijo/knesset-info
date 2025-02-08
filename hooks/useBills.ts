@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import type { Bill } from '../lib/models/Bill';
+import type  Bill  from '../types/bill';
 
 
 export default function useBills() {
@@ -24,6 +24,7 @@ export default function useBills() {
                 } else {
                     setBills(data.bills);
                 }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (err: any) {
                 setError(err.message);
             } finally {

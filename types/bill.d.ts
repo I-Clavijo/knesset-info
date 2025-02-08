@@ -22,7 +22,7 @@ export default interface Bill {
     Summary: string;
     MainInstructions: string;
     Impacts: string;
-    Category: number;
+    Category: string;
     Initiators: number[];
     VotesUp: number;
     VotesDown: number;

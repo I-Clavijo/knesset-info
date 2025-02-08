@@ -14,9 +14,9 @@ const Hero: React.FC = () => {
         muted
       />
       <div className="p-10 relative z-10 flex items-center  w-full h-full bg-black bg-opacity-20">
-        <div className=" text-white mr-20">
-          <h1 className="text-4xl font-bold md:text-5xl lg:text-6xl">
-            עצבו את עתיד החקיקה
+        <div className=" text-white ">
+          <h1 className="text-3xl font-bold md:text-4xl lg:text-6xl">
+            גלו הצעות חוק שעומדות לעצב את עתידנו
           </h1>
           <TypeAnimation
             sequence={[
@@ -24,14 +24,14 @@ const Hero: React.FC = () => {
               2000,
               "שתפו את דעתכם",
               2000,
-              "הצביעו על חוקים",
+              "הצביעו והשפיעו",
               2000,
             ]}
             wrapper="span"
             speed={50}
             style={{
               color: "light-grey",
-              fontSize: "2.5em",
+              fontSize: "2.3em",
               display: "inline-block",
             }}
             repeat={Infinity}
