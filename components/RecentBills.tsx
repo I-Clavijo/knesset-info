@@ -21,8 +21,8 @@ const RecentBills: React.FC<RecentBillsProps> = ({ bills }) => {
   };
 
   return (
-    <div className="mx-4 rounded-lg shadow-md mb-3">
-      <div className="flex shadow-md justify-between items-center mb-3 bg-white dark:bg-gray-800 p-3 rounded-lg">
+    <div className="mx-4 rounded-lg shadow-md mb-3 ">
+      <div className="flex shadow-md justify-between items-center mb-3 bg-white dark:bg-gray-800 p-3 rounded-lg ">
         <h2 className=" text-black dark:text-white font-bold">
           הצעות חוק אחרונות בקריאה ראשונה
         </h2>

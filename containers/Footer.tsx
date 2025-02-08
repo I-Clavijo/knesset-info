@@ -4,9 +4,10 @@ import { Footer } from "flowbite-react";
 
 export default function FooterContainer() {
   return (
+    
     <Footer container className="rounded-none mt-4 ">
       <Footer.Copyright
-        href="#"
+        href="/"
         by=" כנסת info"
         year={2025}
         style={{ textAlign: "center", width: "100%" }}

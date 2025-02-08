@@ -1,7 +1,6 @@
 "use client";
 
 import Hero from "../components/Hero";
-//import BillCard from "../components/BillCard";
 //import useInitiateData from "../hooks/useInitiateData";
 import useBills from "../hooks/useBills";
 import BillCardGrid from "../components/BillCardGrid";
