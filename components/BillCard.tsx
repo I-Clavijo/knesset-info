@@ -3,7 +3,7 @@
 import { Card, Button } from "flowbite-react";
 import Link from "next/link";
 import React from "react";
-import { Bill } from "../types/bill";
+import Bill from "../types/bill";
 import Image from "next/image";
 
 const BillCard: React.FC<Bill> = ({

@@ -2,9 +2,8 @@
 
 import Hero from "../components/Hero";
 //import BillCard from "../components/BillCard";
-import Footer from "../containers/Footer";
 //import Users from "../components/Users";
-//import useInitiateData from "../hooks/useInitiateData";
+import useInitiateData from "../hooks/useInitiateData";
 import useBills from "../hooks/useBills";
 import BillCardGrid from "../components/BillCardGrid";
 import Categories from "@/components/Categories";
@@ -13,10 +12,10 @@ import { myCategories } from "./categories";
 import RecentBills from "../components/RecentBills";
 
 export default function Home() {
-  //useInitiateData();
-  const { bills, isLoading, error } = useBills();
+  useInitiateData();
+  //const { bills, isLoading, error } = useBills();
 
-  const transformedBills = bills?.map((bill) => ({
+  /*const transformedBills = bills?.map((bill) => ({
     ...bill,
     Summary: "summary",
     Initiators: ["pepe,lola"],
@@ -26,10 +25,10 @@ export default function Home() {
     Comments: 4,
     FilePath: "filepath",
   }));
-
-  console.log(transformedBills);
-
+*/
+/*
   return (
+    
     <div>
       <main className="flex flex-col items-center w-full">
         <Hero />
@@ -47,7 +46,8 @@ export default function Home() {
           <div>No bills to display</div>
         )}
       </main>
-
     </div>
+    
   );
+  */
 }

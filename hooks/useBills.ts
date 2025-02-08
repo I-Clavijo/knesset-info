@@ -2,28 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
-export interface Bill {
-    BillID: number;
-    KnessetNum: number;
-    Name: string;
-    SubTypeID: number;
-    SubTypeDesc: string;
-    PrivateNumber: number;
-    CommitteeID: number;
-    StatusID: number;
-    Number: number;
-    PostponementReasonID: number;
-    PostponementReasonDesc: string;
-    PublicationDate: Date;
-    MagazineNumber: number;
-    PageNumber: number;
-    IsContinuationBill: boolean;
-    SummaryLaw: string;
-    PublicationSeriesID: number;
-    PublicationSeriesDesc: string;
-    PublicationSeriesFirstCall: number;
-    LastUpdatedDate: Date;
-}
+import type { Bill } from '../lib/models/Bill';
+
 
 export default function useBills() {
     const [bills, setBills] = useState<Bill[]>([]);

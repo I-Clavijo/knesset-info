@@ -1,6 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, {  Document } from 'mongoose';
 
-export interface IBill extends Document {
+export interface Bill extends Document {
     BillID: number;
     KnessetNum: number;
     Name: string;
@@ -21,9 +21,18 @@ export interface IBill extends Document {
     PublicationSeriesDesc: string;
     PublicationSeriesFirstCall: number;
     LastUpdatedDate: Date;
+    Summary: string;
+    MainInstructions: string;
+    Impacts: string;
+    Category: number;
+    Initiators: number[];
+    VotesUp: number;
+    VotesDown: number;
+    Comments: number;
+    FilePath: string;
 }
 
-const BillSchema: Schema = new Schema({
+const billSchema = new mongoose.Schema({
     BillID: { type: Number },
     KnessetNum: { type: Number },
     Name: { type: String },
@@ -43,7 +52,18 @@ const BillSchema: Schema = new Schema({
     PublicationSeriesID: { type: Number },
     PublicationSeriesDesc: { type: String },
     PublicationSeriesFirstCall: { type: Number },
-    LastUpdatedDate: { type: Date }
+    LastUpdatedDate: { type: Date },
+    Summary: { type: String },
+    MainInstructions: { type: String },
+    Impacts: { type: String },
+    Category: { type: Number },
+    Initiators: [{ type: Number }],
+    VotesUp: { type: Number },
+    VotesDown: { type: Number },
+    Comments: { type: Number },
+    FilePath:{ type: String },
 });
 
-export default mongoose.models.Bill || mongoose.model<IBill>('Bill', BillSchema);
+const Bill = mongoose.models.Bill || mongoose.model('Bill', billSchema);
+
+export default Bill;

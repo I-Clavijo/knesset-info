@@ -1,4 +1,4 @@
-export interface Bill {
+export default interface Bill {
     BillID: number;
     KnessetNum: number;
     Name: string;
@@ -20,10 +20,13 @@ export interface Bill {
     PublicationSeriesFirstCall?: number;
     LastUpdatedDate: Date;
     Summary: string;
-    Initiators: string[];
-    Category: string;
+    MainInstructions: string;
+    Impacts: string;
+    Category: number;
+    Initiators: number[];
     VotesUp: number;
     VotesDown: number;
     Comments: number;
     FilePath: string;
+
   }
