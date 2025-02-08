@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Button } from "flowbite-react";
 
 interface Category {
-  id: string;
+  id: number;
   name: string;
 }
 
