@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import { Flowbite, ThemeModeScript } from "flowbite-react";
 import NavbarContainer from "../containers/Navbar";
+import Footer from "../containers/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,6 +23,9 @@ export default function RootLayout({
         <body className="bg-gray-50 dark:bg-gray-900">
           <NavbarContainer />
           {children}
+          <footer>
+            <Footer />
+          </footer>
         </body>
       </Flowbite>
     </html>

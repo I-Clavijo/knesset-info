@@ -24,6 +24,7 @@ export default function Home() {
     VotesUp: 2,
     VotesDown: 3,
     Comments: 4,
+    FilePath: "filepath",
   }));
 
   console.log(transformedBills);
@@ -46,7 +47,7 @@ export default function Home() {
           <div>No bills to display</div>
         )}
       </main>
-      <Footer />
+
     </div>
   );
 }

@@ -14,7 +14,9 @@
     "next": "15.1.6",
     "mongoose": "^8.9.6",
     "react-type-animation": "^3.2.0",
-    "axios": "^1.7.9"
+    "axios": "^1.7.9",
+    "openai": "4.80.1",
+    "mammoth": "^1.9.0"
 
   },
   "devDependencies": {

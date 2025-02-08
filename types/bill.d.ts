@@ -25,4 +25,5 @@ export interface Bill {
     VotesUp: number;
     VotesDown: number;
     Comments: number;
+    FilePath: string;
   }
