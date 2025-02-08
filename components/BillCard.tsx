@@ -21,7 +21,7 @@ const BillCard: React.FC<Bill> = ({
   const [votesDown, setVotesDown] = useState(VotesDown);
   const [hasVoted, setHasVoted] = useState(false);
 
-  const handleVoteUp = (e) => {
+  const handleVoteUp = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (hasVoted && votesUp == 0) {
       setVotesDown(votesDown - 1);
@@ -38,7 +38,7 @@ const BillCard: React.FC<Bill> = ({
     //   .catch(error => { /* handle error */ });
   };
 
-  const handleVoteDown = (e) => {
+  const handleVoteDown = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (hasVoted && votesDown == 0) {
       setVotesUp(votesUp - 1);
@@ -79,8 +79,11 @@ const BillCard: React.FC<Bill> = ({
                 {Category}
               </span>
             </p>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              יזמים: {Initiators.join(", ")}
+            <p className="font-normal text-gray-700 dark:text-white">
+              יזמים:{" "}
+              <span className=" text-gray-700 dark:text-gray-400">
+                {Initiators.join(", ")}
+              </span>
             </p>
             <div className="grid grid-cols-2 gap-4 mt-4">
               {Initiators.map((initiator) => (

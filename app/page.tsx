@@ -2,8 +2,7 @@
 
 import Hero from "../components/Hero";
 //import BillCard from "../components/BillCard";
-//import Users from "../components/Users";
-import useInitiateData from "../hooks/useInitiateData";
+//import useInitiateData from "../hooks/useInitiateData";
 import useBills from "../hooks/useBills";
 import BillCardGrid from "../components/BillCardGrid";
 import Categories from "@/components/Categories";
@@ -24,7 +23,10 @@ export default function Home() {
     ?.filter((bill) => bill.Comments === 0)
     .map((bill) => ({
       ...bill,
-      Category: categoryMap[bill.Category] || bill.Category,
+      Category:
+        typeof bill.Category === "number"
+          ? bill.Category
+          : parseInt(categoryMap[bill.Category]) || bill.Category,
     }));
 
   return (
