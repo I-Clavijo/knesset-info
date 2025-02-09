@@ -498,6 +498,181 @@ const members = [
       "PersonID": 30830,
       "LastName": "טל",
       "FirstName": "אוהד"
+    },
+    {
+      "PersonID": 30831,
+      "LastName": "דלל",
+      "FirstName": "אלי"
+    },
+    {
+      "PersonID": 30832,
+      "LastName": "רביבו",
+      "FirstName": "אליהו"
+    },
+    {
+      "PersonID": 30833,
+      "LastName": "כהן",
+      "FirstName": "אלמוג"
+    },
+    {
+      "PersonID": 30835,
+      "LastName": "ביסמוט",
+      "FirstName": "בועז"
+    },
+    {
+      "PersonID": 30836,
+      "LastName": "איזנקוט",
+      "FirstName": "גדי"
+    },
+    {
+      "PersonID": 30837,
+      "LastName": "ביטון",
+      "FirstName": "דבי"
+    },
+    {
+      "PersonID": 30839,
+      "LastName": "אילוז",
+      "FirstName": "דן"
+    },
+    {
+      "PersonID": 30840,
+      "LastName": "אלהואשלה",
+      "FirstName": "ואליד"
+    },
+    {
+      "PersonID": 30842,
+      "LastName": "מלביצקי",
+      "FirstName": "חנוך דב"
+    },
+    {
+      "PersonID": 30843,
+      "LastName": "חוג'יראת",
+      "FirstName": "יאסר"
+    },
+    {
+      "PersonID": 30846,
+      "LastName": "גולדקנופ",
+      "FirstName": "יצחק"
+    },
+    {
+      "PersonID": 30847,
+      "LastName": "וסרלאוף",
+      "FirstName": "יצחק שמעון"
+    },
+    {
+      "PersonID": 30849,
+      "LastName": "סון הר מלך",
+      "FirstName": "לימור"
+    },
+    {
+      "PersonID": 30851,
+      "LastName": "צרפתי הרכבי",
+      "FirstName": "מטי"
+    },
+    {
+      "PersonID": 30852,
+      "LastName": "סולומון",
+      "FirstName": "משה"
+    },
+    {
+      "PersonID": 30853,
+      "LastName": "סעדה",
+      "FirstName": "משה"
+    },
+    {
+      "PersonID": 30854,
+      "LastName": "שירי",
+      "FirstName": "נאור"
+    },
+    {
+      "PersonID": 30857,
+      "LastName": "אליהו",
+      "FirstName": "עמיחי"
+    },
+    {
+      "PersonID": 30859,
+      "LastName": "פוגל",
+      "FirstName": "צביקה"
+    },
+    {
+      "PersonID": 30860,
+      "LastName": "גוטליב",
+      "FirstName": "טלי"
+    },
+    {
+      "PersonID": 30861,
+      "LastName": "דנינו",
+      "FirstName": "שלום"
+    },
+    {
+      "PersonID": 30863,
+      "LastName": "ניר",
+      "FirstName": "שרון"
+    },
+    {
+      "PersonID": 30867,
+      "LastName": "קרויזר",
+      "FirstName": "יצחק"
+    },
+    {
+      "PersonID": 30868,
+      "LastName": "מישרקי",
+      "FirstName": "יונתן"
+    },
+    {
+      "PersonID": 30870,
+      "LastName": "רוט",
+      "FirstName": "משה"
+    },
+    {
+      "PersonID": 30871,
+      "LastName": "מירון",
+      "FirstName": "שלי טל"
+    },
+    {
+      "PersonID": 30872,
+      "LastName": "מושיאשוילי",
+      "FirstName": "סימון"
+    },
+    {
+      "PersonID": 30873,
+      "LastName": "מלול",
+      "FirstName": "ארז"
+    },
+    {
+      "PersonID": 30875,
+      "LastName": "מלקו",
+      "FirstName": "צגה"
+    },
+    {
+      "PersonID": 30876,
+      "LastName": "שקלים",
+      "FirstName": "אושר"
+    },
+    {
+      "PersonID": 30877,
+      "LastName": "פסל",
+      "FirstName": "משה"
+    },
+    {
+      "PersonID": 30879,
+      "LastName": "גואטה",
+      "FirstName": "ששון ששי"
+    },
+    {
+      "PersonID": 30880,
+      "LastName": "בוארון",
+      "FirstName": "אביחי אברהם"
+    },
+    {
+      "PersonID": 30881,
+      "LastName": "לוי",
+      "FirstName": "ירון"
+    },
+    {
+      "PersonID": 30893,
+      "LastName": "עבד",
+      "FirstName": "עפיף"
     }
   ]
 
