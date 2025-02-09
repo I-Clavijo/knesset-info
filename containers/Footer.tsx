@@ -4,7 +4,6 @@ import { Footer } from "flowbite-react";
 
 export default function FooterContainer() {
   return (
-    
     <Footer container className="rounded-none mt-4 ">
       <Footer.Copyright
         href="/"
