@@ -2,14 +2,11 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import Bill from "@/lib/models/Bill";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  const { id } = await params; 
+export async function GET( request: Request) {
+  const pathname = new URL(request.url).pathname;
+  const id = pathname.split('/').pop();
 
   await dbConnect();
-  console.log("Fetching bill with ID:", id);
 
   try {
     const bill = await Bill.findOne({ BillID: id });
