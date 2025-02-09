@@ -20,7 +20,7 @@ export async function GET(request: Request) {
   } else {
     return NextResponse.json({
         success: true,
-        bills: await Bill.find({}),
+        bills: await Bill.find({}).sort({ LastUpdatedDate: -1 }),
       });
   }
 }
