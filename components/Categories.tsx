@@ -10,13 +10,20 @@ interface Category {
 
 interface CategoriesProps {
   categories: Category[];
+  onCategorySelect: (category: Category) => void;
 }
 
 const SCROLL_AMOUNT = 500;
 
-const Categories: React.FC<CategoriesProps> = ({ categories }) => {
+const Categories: React.FC<CategoriesProps> = ({
+  categories,
+  onCategorySelect,
+}) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
+    null
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,6 +52,11 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
     }
   };
 
+  const handleCategoryClick = (category: Category) => {
+    setSelectedCategory(category);
+    onCategorySelect(category);
+  };
+
   return (
     <div className="relative w-full max-w-screen-2xl mx-auto">
       <div
@@ -59,7 +71,12 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
       >
         {categories.map((category) => (
           <div key={category.id}>
-            <Button className="m-1 h-10 whitespace-nowrap dark:bg-gray-800">
+            <Button
+              className={`m-1 h-10 whitespace-nowrap dark:bg-gray-800 ${
+                selectedCategory?.id === category.id ? "bg-blue-500" : ""
+              }`}
+              onClick={() => handleCategoryClick(category)} 
+            >
               {category.name}
             </Button>
           </div>

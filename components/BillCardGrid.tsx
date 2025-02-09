@@ -1,12 +1,12 @@
 import React from "react";
 import BillCard from "./BillCard";
-import Bill from "../types/bill";
+import { Bill } from "../types/bill";
 import { Button } from "flowbite-react";
 
 interface BillCardGridProps {
   bills: Bill[];
 }
-const BillCardGrid: React.FC<BillCardGridProps> = ({ bills }) => {
+const BillCardGrid = ({ bills }: BillCardGridProps) => {
   return (
     <>
       <div className=" rounded-lg shadow-md mb-3">

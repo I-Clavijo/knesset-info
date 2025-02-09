@@ -3,7 +3,7 @@ import dbConnect from '../../lib/db';
 import axios from 'axios';
 import OpenAI from "openai";
 import mammoth from 'mammoth';
-import { myCategories } from "../categories";
+import myCategories from "../categories";
 import Bill from '../../lib/models/Bill';
 
 const openai = new OpenAI({

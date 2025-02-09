@@ -3,20 +3,22 @@
 import { Card, Button } from "flowbite-react";
 import Link from "next/link";
 import React, { useState } from "react";
-import Bill from "../types/bill";
+import type { Bill } from "@/types/bill";
 import Image from "next/image";
 
-const BillCard: React.FC<Bill> = ({
-  BillID,
-  Name,
-  LastUpdatedDate,
-  Summary,
-  Initiators,
-  Category,
-  VotesUp,
-  VotesDown,
-  Comments,
+
+const BillCard = ({
+  BillID = 0,
+  Name = 'ללא שם',
+  LastUpdatedDate = new Date(),
+  Summary = 'אין תקציר',
+  Initiators = [],
+  Category = 'ללא קטגוריה',
+  VotesUp = 0,
+  VotesDown = 0,
+  Comments = 0,
 }: Bill) => {
+  
   const [votesUp, setVotesUp] = useState(VotesUp);
   const [votesDown, setVotesDown] = useState(VotesDown);
   const [hasVoted, setHasVoted] = useState(false);
@@ -38,6 +40,7 @@ const BillCard: React.FC<Bill> = ({
     //   .catch(error => { /* handle error */ });
   };
 
+  
   const handleVoteDown = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (hasVoted && votesDown == 0) {
@@ -50,6 +53,7 @@ const BillCard: React.FC<Bill> = ({
     }
   };
 
+  
   return (
     <Link href={`/bill/${BillID}`} legacyBehavior>
       <Card
@@ -151,13 +155,12 @@ const BillCard: React.FC<Bill> = ({
               <span>{Comments}</span>
               <span> תגובות</span>
             </div>
-          </div>{" "}
-          {/* End of vote section */}
-        </div>{" "}
-        {/* End of flex column */}
+          </div>
+        </div>
       </Card>
     </Link>
   );
+  
 };
 
 export default BillCard;

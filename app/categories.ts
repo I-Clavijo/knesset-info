@@ -1,4 +1,4 @@
-export const myCategories = [
+const myCategories = [
   { id: 1, name: "ביטחון וצבא" },
   { id: 2, name: "בריאות" },
   { id: 3, name: "חינוך והשכלה" },
@@ -22,3 +22,5 @@ export const myCategories = [
   { id: 22, name: "צרכנות" },
   { id: 23, name: "תיירות" },
 ];
+
+export default myCategories;
