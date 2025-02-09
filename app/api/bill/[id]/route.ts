@@ -4,7 +4,7 @@ import Bill from "@/lib/models/Bill";
 
 export async function GET( request: Request, { params }: { params: { id: string } }
 ) {
-  const { id } =  await params;
+  const { id } = params;
 
   await dbConnect();
 
