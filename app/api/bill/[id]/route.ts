@@ -6,9 +6,10 @@ export async function GET(
   request: Request,
   { params }: { params: { id: string } }
 ) {
-  const { id } = params;
+  const { id } = await params; 
 
   await dbConnect();
+  console.log("Fetching bill with ID:", id);
 
   try {
     const bill = await Bill.findOne({ BillID: id });
