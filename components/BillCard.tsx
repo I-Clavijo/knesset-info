@@ -18,6 +18,8 @@ const BillCard = ({
   VotesDown = 0,
   Comments = 0,
 }: Bill) => {
+
+  /*
   
   const [votesUp, setVotesUp] = useState(VotesUp);
   const [votesDown, setVotesDown] = useState(VotesDown);
@@ -36,8 +38,8 @@ const BillCard = ({
     // Here you would typically make an API call to update the vote count on the server
     // Example:
     // fetch(`/api/bill/${BillID}/voteup`, { method: 'POST' })
-    //   .then(response => { /* handle response */ })
-    //   .catch(error => { /* handle error */ });
+    //   .then(response => 
+    //   .catch(error => 
   };
 
   
@@ -52,6 +54,7 @@ const BillCard = ({
       setHasVoted(true);
     }
   };
+  */
 
   
   return (
@@ -98,6 +101,7 @@ const BillCard = ({
               ))}
             </div>
           </div>
+          {/*
           <div className="mt-4 dark:text-white">
             <div className="flex flex-col gap-2 dark:text-white">
               <div className="flex items-center gap-2">
@@ -156,7 +160,9 @@ const BillCard = ({
               <span> תגובות</span>
             </div>
           </div>
+          */}
         </div>
+        
       </Card>
     </Link>
   );
