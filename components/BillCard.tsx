@@ -1,24 +1,22 @@
 "use client";
 
-import { Card, Button } from "flowbite-react";
+import { Card } from "flowbite-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import type { Bill } from "@/types/bill";
-import Image from "next/image";
-
+//import Image from "next/image";
 
 const BillCard = ({
   BillID = 0,
-  Name = 'ללא שם',
+  Name = "ללא שם",
   LastUpdatedDate = new Date(),
-  Summary = 'אין תקציר',
+  Summary = "אין תקציר",
   Initiators = [],
-  Category = 'ללא קטגוריה',
-  VotesUp = 0,
-  VotesDown = 0,
-  Comments = 0,
-}: Bill) => {
-
+  Category = "ללא קטגוריה",
+}: //VotesUp = 0,
+//VotesDown = 0,
+//Comments = 0,
+Bill) => {
   /*
   
   const [votesUp, setVotesUp] = useState(VotesUp);
@@ -56,7 +54,6 @@ const BillCard = ({
   };
   */
 
-  
   return (
     <Link href={`/bill/${BillID}`} legacyBehavior>
       <Card
@@ -162,11 +159,9 @@ const BillCard = ({
           </div>
           */}
         </div>
-        
       </Card>
     </Link>
   );
-  
 };
 
 export default BillCard;
