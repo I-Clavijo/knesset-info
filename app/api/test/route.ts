@@ -3,3 +3,4 @@ export function GET() {
     return new Response('Hello from Vercel!');
     
   }
+  export const dynamic = 'force-dynamic';
