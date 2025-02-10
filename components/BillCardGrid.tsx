@@ -9,7 +9,7 @@ const BillCardGrid = ({ bills }: BillCardGridProps) => {
   return (
     <>
       <div className=" rounded-lg shadow-md mb-3">
-        <div className="mx-3 flex shadow-md justify-between items-center mb-3 bg-white dark:bg-gray-800 p-3 rounded-lg ">
+        <div className="mx-4 flex shadow-md justify-between items-center mb-3 bg-white dark:bg-gray-800 p-3 rounded-lg ">
           <h2 className="w-full text-center text-black dark:text-white font-bold">
             הצעות החוק בקריאה ראשונה
           </h2>

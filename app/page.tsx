@@ -6,6 +6,7 @@ import BillCardGrid from "../components/BillCardGrid";
 import Categories from "@/components/Categories";
 import { Spinner } from "flowbite-react";
 import myCategories from "./categories";
+import Stats from "@/components/Stats";
 
 import { useState, useEffect } from "react";
 
@@ -13,6 +14,21 @@ interface Category {
   id: number;
   name: string;
 }
+
+const statsData = [
+  {
+    targetNumber: 100,
+    title: "הצעות חוק בדיון מקודם",
+  },
+  {
+    targetNumber: 500,
+    title: "הצעות חוק בקריאה ראשונה",
+  },
+  {
+    targetNumber: 1000,
+    title: "הצעות חוק בקריאה שנייה-שלישית",
+  },
+];
 
 export default function Home() {
   const [bills, setBills] = useState(null);
@@ -51,6 +67,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Stats stats={statsData} />
       <Categories
         categories={myCategories}
         onCategorySelect={handleCategorySelection}
