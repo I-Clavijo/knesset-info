@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         muted
       />
       <div className="p-10 relative z-10 flex items-center  w-full h-full bg-black bg-opacity-20">
-        <div className=" text-white ">
+        <div className=" text-white mr-8">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-6xl">
             גלו הצעות חוק שעומדות לעצב את עתידנו
           </h1>
@@ -31,9 +31,9 @@ const Hero: React.FC = () => {
             speed={50}
             style={{
               color: "light-grey",
-              fontSize: "2.3em",
               display: "inline-block",
             }}
+            className="text-2xl md:text-3xl lg:text-4xl"
             repeat={Infinity}
           />
         </div>

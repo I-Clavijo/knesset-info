@@ -18,15 +18,15 @@ interface Category {
 const statsData = [
   {
     targetNumber: 100,
-    title: "הצעות חוק בדיון מקודם",
+    title: "בדיון מקודם",
   },
   {
     targetNumber: 500,
-    title: "הצעות חוק בקריאה ראשונה",
+    title: "בקריאה ראשונה",
   },
   {
     targetNumber: 1000,
-    title: "הצעות חוק בקריאה שנייה-שלישית",
+    title: "בקריאה שנייה ושלישית",
   },
 ];
 
