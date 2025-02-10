@@ -1,20 +1,18 @@
-export default function About() {
+export default function Donate() {
   return (
     <div
-      className="min-h-screen bg-gradient-to-br dark:text-white flex flex-col"
+      className="min-h-screen bg-gradient-to-br dark:text-gray-300 flex flex-col mt-3"
       dir="rtl"
     >
-      <main className="flex-grow flex  justify-center">
-        <section className="container mx-auto max-w-2xl p-10 bg-white bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg">
-          <h1 className="text-5xl font-bold mb-6 text-center">תרומות</h1>
+      <main className="flex-grow flex justify-center">
+        <section className="container dark:bg-gray-800 mx-auto max-w-2xl p-10 backdrop-blur-lg rounded-lg shadow-lg">
           <div className="prose prose-invert">
-            <p>
-              בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה בלה
+            <p className="font-semibold text-xl text-gray-800 dark:text-gray-300 mb-4">
+              דף בבניה
             </p>
-
           </div>
         </section>
-      </main>     
+      </main>
     </div>
   );
 }

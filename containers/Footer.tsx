@@ -1,10 +1,8 @@
-"use client";
-
 import { Footer } from "flowbite-react";
 
 export default function FooterContainer() {
   return (
-    <Footer container className="rounded-none mt-4 ">
+    <Footer container className="rounded-none mt-3 ">
       <Footer.Copyright
         href="/"
         by=" כנסת info"

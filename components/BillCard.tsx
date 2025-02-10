@@ -5,6 +5,8 @@ import Link from "next/link";
 import React from "react";
 import type { Bill } from "@/types/bill";
 //import Image from "next/image";
+import myCategories from "../app/categories";
+import members from "@/app/members";
 
 const BillCard = ({
   BillID = 0,
@@ -79,16 +81,24 @@ Bill) => {
             <hr className="my-2 border-gray-300 dark:border-gray-600" />{" "}
             <p className="font-normal text-gray-700 dark:text-white inline-block">
               קטגוריה:{" "}
-              <span className=" text-gray-700 dark:text-gray-400">
-                {Category}
+              <span className="text-gray-700 dark:text-gray-400">
+                {myCategories.find(
+                  (category) => category.id === Number(Category)
+                )?.name || Category}
               </span>
             </p>
             <p className="font-normal text-gray-700 dark:text-white">
               יזמים:{" "}
-              <span className=" text-gray-700 dark:text-gray-400">
-                {Initiators.join(", ")}
+              <span>
+                {Initiators.length > 0 &&
+                  Initiators.map((initiator) => {
+                    const member = members.find((m) => m.PersonID === initiator);
+                    return `${member?.FirstName} ${member?.LastName}`;
+                  }).join(", ")}
               </span>
             </p>
+          </div>
+          {/*
             <div className="grid grid-cols-2 gap-4 mt-4">
               {Initiators.map((initiator) => (
                 <div
@@ -98,7 +108,7 @@ Bill) => {
               ))}
             </div>
           </div>
-          {/*
+          
           <div className="mt-4 dark:text-white">
             <div className="flex flex-col gap-2 dark:text-white">
               <div className="flex items-center gap-2">

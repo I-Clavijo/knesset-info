@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
       />
       <div className="p-10 relative z-10 flex items-center  w-full h-full bg-black bg-opacity-20">
         <div className=" text-white mr-8">
-          <h1 className="text-3xl font-bold md:text-4xl lg:text-6xl">
+          <h1 className="text-3xl font-bold md:text-4xl lg:text-6xl mb-5">
             גלו הצעות חוק שעומדות לעצב את עתידנו
           </h1>
           <TypeAnimation

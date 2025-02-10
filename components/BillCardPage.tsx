@@ -60,7 +60,9 @@ Bill) => {
             </span>
           </p>
           <div className="mt-auto">
-            <Button onClick={() => window.location.href = FilePath}>להורדת הצעת החוק</Button>
+            <Button onClick={() => (window.location.href = FilePath)}>
+              להורדת הצעת החוק
+            </Button>
           </div>
         </div>
       </Card>
@@ -76,7 +78,7 @@ Bill) => {
             className={`grid grid-cols-${Math.min(
               Initiators.length,
               3
-            )} gap-4 p-4 `}
+            )} gap-4 p-4`}
           >
             {Initiators.length > 0 &&
               Initiators.map((initiator: number) => (
