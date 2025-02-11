@@ -1,5 +1,5 @@
 import React from "react";
-import BillCard from "./BillCard";
+import BillCard from "./FeaturedBillCard";
 import { Bill } from "../types/bill";
 
 interface BillCardGridProps {
@@ -8,7 +8,7 @@ interface BillCardGridProps {
 const BillCardGrid = ({ bills }: BillCardGridProps) => {
   return (
     <>
-      <div className=" rounded-lg  mb-3">
+      <div className=" mt-4 rounded-lg  mb-3">
         {/*
         <div className="mx-4 flex shadow-md justify-between items-center mb-3 bg-white dark:bg-gray-800 p-3 rounded-lg ">
           <h2 className="w-full text-center text-black dark:text-white font-bold">

@@ -89,10 +89,12 @@ Bill) => {
             </p>
             <p className="font-normal text-gray-700 dark:text-white">
               יזמים:{" "}
-              <span>
+              <span className="dark:text-gray-400">
                 {Initiators.length > 0 &&
                   Initiators.map((initiator) => {
-                    const member = members.find((m) => m.PersonID === initiator);
+                    const member = members.find(
+                      (m) => m.PersonID === initiator
+                    );
                     return `${member?.FirstName} ${member?.LastName}`;
                   }).join(", ")}
               </span>

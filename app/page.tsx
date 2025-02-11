@@ -7,6 +7,7 @@ import Categories from "@/components/Categories";
 import { Spinner } from "flowbite-react";
 import myCategories from "./categories";
 import Stats from "@/components/Stats";
+import FeaturedBillCardGrid from "@/components/FeaturedBillCardGrid";
 
 import { useState, useEffect } from "react";
 
@@ -27,6 +28,41 @@ const statsData = [
   {
     targetNumber: 1000,
     title: "בקריאה שנייה ושלישית",
+  },
+];
+
+const featuredBills = [
+  {
+    BillID: 1,
+    Name: "הצעת חוק השידור הציבורי הישראלי ",
+    LastUpdatedDate: new Date(),
+    Summary: "אין תקציר",
+    Initiators: [467],
+    Category: "1",
+    KnessetNum: 25,
+    MainInstructions: "",
+    Impacts: "",
+    VotesUp: 0,
+    VotesDown: 0,
+    Status: "pending",
+    Comments: 0,
+    FilePath: "",
+  },
+  {
+    BillID: 2,
+    Name: "ללא שם",
+    LastUpdatedDate: new Date(),
+    Summary: "אין תקציר",
+    Initiators: [467],
+    Category: "1",
+    KnessetNum: 25,
+    MainInstructions: "",
+    Impacts: "",
+    VotesUp: 0,
+    VotesDown: 0,
+    Status: "pending",
+    Comments: 0,
+    FilePath: "",
   },
 ];
 
@@ -68,6 +104,15 @@ export default function Home() {
     <>
       <Hero />
       <Stats stats={statsData} />
+      {isLoading ? (
+        <div className="flex justify-center items-center h-full ">
+          <Spinner size="xl" />
+        </div>
+      ) : bills ? (
+        <FeaturedBillCardGrid bills={featuredBills} />
+      ) : (
+        <h1>{error}</h1>
+      )}
       <Categories
         categories={myCategories}
         onCategorySelect={handleCategorySelection}

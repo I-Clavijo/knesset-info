@@ -5,11 +5,9 @@ export default function NotFound() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:text-white dark:bg-black p-8 font-[family-name:var(--font-geist-sans)]">
       <main className="text-center">
         <h1 className="text-6xl font-bold mb-4">404</h1>
-        <p className="text-xl mb-8">
-          Oops! The page you&apos;re looking for doesn&apos;t exist.
-        </p>
+        <p className="text-xl mb-8">אופס! הדף שחיפשת אינו קיים.</p>
         <Button href="/" className="mt-4">
-          Go Back Home
+          חזרה לדף הבית
         </Button>
       </main>
     </div>
