@@ -73,6 +73,9 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
 
   useEffect(() => {
+    localStorage.setItem("flowbite-theme-mode", "dark");
+    document.documentElement.classList.add("dark");
+
     const fetchBills = async () => {
       setIsLoading(true);
       setError(null);

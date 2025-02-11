@@ -19,5 +19,5 @@ export default {
   plugins: [
     flowbite.plugin(),
   ],
-  dark: "class",
+  darkMode: 'class',
 } satisfies Config;
