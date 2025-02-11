@@ -58,7 +58,7 @@ const Categories: React.FC<CategoriesProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-screen-2xl mx-auto">
+    <div className="relative w-full max-w-screen mx-auto">
       <div
         ref={scrollContainerRef}
         className={`flex m-3 ${

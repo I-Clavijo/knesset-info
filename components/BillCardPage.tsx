@@ -59,7 +59,7 @@ Bill) => {
                 ?.name || Category}
             </span>
           </p>
-          <div className="mt-auto">
+          <div className="mt-3">
             <Button onClick={() => (window.location.href = FilePath)}>
               להורדת הצעת החוק
             </Button>
@@ -74,12 +74,7 @@ Bill) => {
               יזמים
             </span>
           </div>
-          <div
-            className={`grid grid-cols-${Math.min(
-              Initiators.length,
-              3
-            )} gap-4 p-4`}
-          >
+          <div className={`grid grid-cols-3 gap-4 p-4`}>
             {Initiators.length > 0 &&
               Initiators.map((initiator: number) => (
                 <div key={initiator} className="flex flex-col items-center">

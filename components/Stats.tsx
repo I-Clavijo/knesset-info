@@ -37,7 +37,7 @@ const StatCard: React.FC<StatItem> = ({ targetNumber, title }) => {
   */
 
   return (
-    <Card className=" text-center text-black dark:text-gray-500 flex-1 min-w-0">
+    <Card className=" text-center text-black dark:text-gray-300 flex-1 min-w-0">
       <div className="flex flex-col items-center">
         <h2 className="text-md font-bold">{targetNumber}</h2>
         <h3 className="text-md font-semibold">{title}</h3>

@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import BillCardPage from "@/components/BillCardPage";
 import { Bill } from "@/types/bill";
+import { Spinner } from "flowbite-react";
 
 export default function BillPage({
   params,
@@ -41,7 +42,7 @@ export default function BillPage({
       <main className="p-3 flex-grow flex justify-center">
         <h1 className=" text-black dark:text-white">
           {isLoading ? (
-            <div>Loading...</div>
+            <Spinner size="lg" />
           ) : bill ? (
             <BillCardPage key={bill.BillID} {...bill} />
           ) : (
