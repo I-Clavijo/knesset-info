@@ -50,7 +50,7 @@ const featuredBills = [
   },
   {
     BillID: 2,
-    Name: "ללא שם",
+    Name: "הצעת חוק-יסוד: השפיטה (תיקון- סמכויות שיפוט ותקנות סדרי דין באישור ועדה)ללא שם",
     LastUpdatedDate: new Date(),
     Summary: "אין תקציר",
     Initiators: [467],
