@@ -76,7 +76,7 @@ Bill) => {
             </p>
             <hr className="my-2 border-gray-300 dark:border-gray-600" />{" "}
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {Summary.length > 100
+              {Summary?.length > 100
                 ? `${Summary.substring(0, 100)}...`
                 : Summary}
             </p>

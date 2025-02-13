@@ -1,6 +1,7 @@
 import React from "react";
 import BillCard from "./FeaturedBillCard";
 import { Bill } from "../types/bill";
+import Ranking from "./Ranking";
 
 interface BillCardGridProps {
   bills: Bill[];
@@ -9,19 +10,20 @@ const BillCardGrid = ({ bills }: BillCardGridProps) => {
   const colors: string[] = ["blue", "green", "lime"];
 
   return (
-    <>
-      <div className=" mt-4 rounded-lg  mb-3">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mx-4">
-          {bills.map((bill, index) => (
-            <BillCard
-              key={bill.BillID}
-              {...bill}
-              color={colors[index % colors.length]}
-            />
-          ))}
+    <div className="flex mt-4 rounded-lg ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mx-4 w-full">
+        {bills.map((bill, index) => (
+          <BillCard
+            key={bill.BillID}
+            {...bill}
+            color={colors[index % colors.length]}
+          />
+        ))}
+        <div className="col-span-full md:col-span-2 md:col-start-4 h-full">
+          <Ranking />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -103,8 +103,8 @@ export default function Home() {
           ? `/api/bills?category=${selectedCategory}`
           : "/api/bills";
         const response = await fetch(url);
-        const resp = (await fetch("/api/db-update")).text();
-        console.log(resp);
+        //const resp = (await fetch("/api/db-update")).text();
+        //console.log(resp);
         const result = await response.json();
         setBills(result.bills);
       } catch (error) {
@@ -125,7 +125,9 @@ export default function Home() {
     <>
       <Hero />
       <Stats stats={statsData} />
-      <FeaturedBillCardGrid bills={featuredBills} />
+      <div className="flex">
+        <FeaturedBillCardGrid bills={featuredBills} />
+      </div>
       <Categories
         categories={myCategories}
         onCategorySelect={handleCategorySelection}
