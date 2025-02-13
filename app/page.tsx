@@ -69,7 +69,8 @@ const featuredBills = [
     BillID: 3,
     Name: "הצעת חוק-יסוד: השפיטה (תיקון- סמכויות שיפוט ותקנות סדרי דין באישור ועדה)ללא שם",
     LastUpdatedDate: new Date(),
-    Summary: "אין תקציר",
+    Summary:
+      "כגשדכדגדדד דדדדדדדדדד דדדדדד דגשדכש דגגגגג גגגגגגגגגגג גגגגגגג גגגגג גגגדשג שדגשדגשד גשדכשדכשגגכ שדגשדגש דגשדגשד גשדשדדד דדדדדדדדד דדדדדדדד דדדד",
     Initiators: [467],
     Category: "1",
     KnessetNum: 25,
@@ -124,15 +125,7 @@ export default function Home() {
     <>
       <Hero />
       <Stats stats={statsData} />
-      {isLoading ? (
-        <div className="mt-4 flex justify-center items-center h-full ">
-          <Spinner size="xl" />
-        </div>
-      ) : bills ? (
-        <FeaturedBillCardGrid bills={featuredBills} />
-      ) : (
-        <h1>{error}</h1>
-      )}
+      <FeaturedBillCardGrid bills={featuredBills} />
       <Categories
         categories={myCategories}
         onCategorySelect={handleCategorySelection}

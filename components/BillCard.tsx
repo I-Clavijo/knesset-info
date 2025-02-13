@@ -76,7 +76,9 @@ Bill) => {
             </p>
             <hr className="my-2 border-gray-300 dark:border-gray-600" />{" "}
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {Summary}
+              {Summary.length > 100
+                ? `${Summary.substring(0, 100)}...`
+                : Summary}
             </p>
             <hr className="my-2 border-gray-300 dark:border-gray-600" />{" "}
             <p className="font-normal text-gray-700 dark:text-white inline-block">
@@ -91,12 +93,16 @@ Bill) => {
               יזמים:{" "}
               <span className="dark:text-gray-400">
                 {Initiators.length > 0 &&
-                  Initiators.map((initiator) => {
-                    const member = members.find(
-                      (m) => m.PersonID === initiator
-                    );
-                    return `${member?.FirstName} ${member?.LastName}`;
-                  }).join(", ")}
+                  Initiators.slice(0, 3) // Take only the first 3 initiators
+                    .map((initiator) => {
+                      const member = members.find(
+                        (m) => m.PersonID === initiator
+                      );
+                      return `${member?.FirstName} ${member?.LastName}`;
+                    })
+                    .join(", ")}
+                {Initiators.length > 3 && `, ועוד ${Initiators.length - 3}`}{" "}
+              
               </span>
             </p>
           </div>

@@ -6,7 +6,7 @@ interface BillCardGridProps {
   bills: Bill[];
 }
 const BillCardGrid = ({ bills }: BillCardGridProps) => {
-  const colors: string[] = ["blue", "green", "orange"];
+  const colors: string[] = ["blue", "green", "lime"];
 
   return (
     <>
