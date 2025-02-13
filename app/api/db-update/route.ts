@@ -225,7 +225,7 @@ export async function GET() {
     console.log("Connected to database");   
     console.log("Getting bills from database");
 
-    const fetchedBills = await fetchAll();
+    const fetchedBills = (await fetchAll()) as Array<typeof Bill.prototype>;
     if (!Array.isArray(fetchedBills)) {
       throw new Error('Failed to fetch bills from API');
     }
@@ -236,7 +236,7 @@ export async function GET() {
     // Delete bills that no longer exist in the API
     let deletedBillsCounter = 0;
     for (const bill of storedBills) {
-      const exists = fetchedBills.some(apiBill => apiBill.BillID == bill.BillID);
+      const exists = fetchedBills.some((apiBill: typeof Bill.prototype) => apiBill.BillID == bill.BillID);
       if (!exists) {
         //await Bill.findByIdAndDelete(bill.BillID);
         console.log(`Removed bill ${bill.BillID}`);
