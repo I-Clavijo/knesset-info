@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   const category = searchParams.get('category');
   const pageNumber = parseInt(searchParams.get('page') || '1', 10);
   const toSkip = (pageNumber - 1) * LIMIT_PAGINATION;
-  console.log(toSkip);
+
 
   await dbConnect();
 
