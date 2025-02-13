@@ -97,7 +97,7 @@ async function categorizeAndSummarize(url: string) {
 
               return completion.choices[0].message.content;
           } catch (error) {
-          
+              console.log(prompt);
               console.error(`Error sending to DeepSeek (retry ${4 - retryCount + 1}):`, error);
               lastError = error;
               retryCount--;
