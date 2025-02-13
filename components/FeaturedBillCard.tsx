@@ -4,8 +4,8 @@ import { Card } from "flowbite-react";
 import Link from "next/link";
 import React from "react";
 import type { Bill } from "@/types/bill";
-import myCategories from "../app/categories";
-import members from "@/app/members";
+//import myCategories from "../app/categories";
+//import members from "@/app/members";
 
 const BillCard = ({
   BillID = 0,
