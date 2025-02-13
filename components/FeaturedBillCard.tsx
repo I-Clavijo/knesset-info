@@ -15,52 +15,22 @@ const BillCard = ({
   Summary = "אין תקציר",
   Initiators = [],
   Category = "ללא קטגוריה",
-}: //VotesUp = 0,
-//VotesDown = 0,
-//Comments = 0,
-Bill) => {
-  /*
-  
-  const [votesUp, setVotesUp] = useState(VotesUp);
-  const [votesDown, setVotesDown] = useState(VotesDown);
-  const [hasVoted, setHasVoted] = useState(false);
-
-  const handleVoteUp = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (hasVoted && votesUp == 0) {
-      setVotesDown(votesDown - 1);
-      setVotesUp(votesUp + 1);
-    }
-    if (!hasVoted) {
-      setVotesUp(votesUp + 1);
-      setHasVoted(true);
-    }
-    // Here you would typically make an API call to update the vote count on the server
-    // Example:
-    // fetch(`/api/bill/${BillID}/voteup`, { method: 'POST' })
-    //   .then(response => 
-    //   .catch(error => 
-  };
-
-  
-  const handleVoteDown = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (hasVoted && votesDown == 0) {
-      setVotesUp(votesUp - 1);
-      setVotesDown(votesDown + 1);
-    }
-    if (!hasVoted) {
-      setVotesUp(votesDown + 1);
-      setHasVoted(true);
-    }
-  };
-  */
+  color,
+}: Bill & { color?: string }) => {
+  const colorClass =
+    color === "green"
+      ? "to-green-800"
+      : color === "blue"
+      ? "to-blue-800"
+      : color === "orange"
+      ? "to-orange-900"
+      : "to-gray-800";
 
   return (
     <Link href={`/bill/${BillID}`} legacyBehavior>
       <Card
         href="#"
-        className="max-w-sm cursor-pointer transform transition-transform hover:scale-105 bg-gradient-to-r from-sky-600 to-blue-800"
+        className={`max-w-sm cursor-pointer transform transition-transform hover:scale-105 bg-gradient-to-r from-sky-600 ${colorClass}`}
       >
         <div className="flex flex-col h-full">
           <div className="flex-grow">

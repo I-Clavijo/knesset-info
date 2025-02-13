@@ -18,15 +18,15 @@ interface Category {
 
 const statsData = [
   {
-    targetNumber: 100,
+    targetNumber: 4771,
     title: "בדיון מקודם",
   },
   {
-    targetNumber: 500,
+    targetNumber: 307,
     title: "בקריאה ראשונה",
   },
   {
-    targetNumber: 1000,
+    targetNumber: 164,
     title: "בקריאה שנייה ושלישית",
   },
 ];
@@ -47,9 +47,26 @@ const featuredBills = [
     Status: "pending",
     Comments: 0,
     FilePath: "",
+    color: "blue",
   },
   {
     BillID: 2,
+    Name: "הצעת חוק-יסוד: השפיטה (תיקון- סמכויות שיפוט ותקנות סדרי דין באישור ועדה)ללא שם",
+    LastUpdatedDate: new Date(),
+    Summary: "אין תקציר",
+    Initiators: [467],
+    Category: "1",
+    KnessetNum: 25,
+    MainInstructions: "",
+    Impacts: "",
+    VotesUp: 0,
+    VotesDown: 0,
+    Status: "pending",
+    Comments: 0,
+    FilePath: "",
+  },
+  {
+    BillID: 3,
     Name: "הצעת חוק-יסוד: השפיטה (תיקון- סמכויות שיפוט ותקנות סדרי דין באישור ועדה)ללא שם",
     LastUpdatedDate: new Date(),
     Summary: "אין תקציר",
