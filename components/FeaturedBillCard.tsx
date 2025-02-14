@@ -20,16 +20,16 @@ const BillCard = ({
     color === "green"
       ? "to-green-800"
       : color === "blue"
-      ? "to-blue-800"
-      : color === "lime"
-      ? "to-lime-900"
+      ? "to-blue-900"
+      : color === "slate"
+      ? "to-slate-700"
       : "to-gray-800";
 
   return (
     <Link href={`/bill/${BillID}`} legacyBehavior>
       <Card
         href="#"
-        className={`h-full max-w-sm cursor-pointer transform transition-transform hover:scale-105 bg-gradient-to-r from-sky-700 ${colorClass}`}
+        className={`h-full max-w-sm cursor-pointer transform transition-transform hover:scale-105 bg-gradient-to-r from-teal-600 ${colorClass}`}
       >
         <div className="flex flex-col h-full">
           <div className="flex-grow">
