@@ -39,6 +39,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [featuredBills, setFeaturedBills] = useState<Bill[] | null>(null);
+  const [membersRanking, setMembersRanking] = useState<number[] | null>(null);
 
   useEffect(() => {
     const fetchFeaturedBills = async () => {
@@ -69,6 +70,24 @@ export default function Home() {
         //fetch("/api/db-update");
 
         const result = await response.json();
+
+        const initiatorsArray: number[] = [];
+        for (const bill of result.bills) {
+          initiatorsArray.push(...bill.Initiators);
+        }
+        const counts: { [key: number]: number } = {};
+        initiatorsArray.forEach((x) => {
+          counts[x] = (counts[x] || 0) + 1;
+        });
+
+        const sortedInitiators = Object.entries(counts)
+          .sort(([, a], [, b]) => b - a)
+          .slice(0, 3)
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          .map(([key, _]) => parseInt(key));
+
+        setMembersRanking(sortedInitiators);
+
         setBills(result.bills);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -89,7 +108,7 @@ export default function Home() {
       <Hero />
       <Stats stats={statsData} />
       <div className="flex">
-        <FeaturedBillCardGrid bills={featuredBills ?? []} />
+        <FeaturedBillCardGrid bills={featuredBills ?? []} topMembers={membersRanking ?? []} />
       </div>
       <Categories
         categories={myCategories}

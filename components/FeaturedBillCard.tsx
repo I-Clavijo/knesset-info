@@ -33,7 +33,7 @@ const BillCard = ({
       >
         <div className="flex flex-col h-full">
           <div className="flex-grow">
-            <h5 className="tracking-tight text-white">{Name}</h5>
+            <h5 className=" text-white">{Name}</h5>
             <p className="font-normal text-white/80">
               {new Date(LastUpdatedDate).toLocaleDateString("en-GB", {
                 day: "2-digit",

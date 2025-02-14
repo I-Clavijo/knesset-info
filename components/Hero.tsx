@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         muted
       />
 
-      <div className="relative z-10 flex items-center justify-center w-full h-full bg-black bg-opacity-30 before:content-[''] before:absolute before:inset-0 before:box-border before:shadow-[inset_0_0_150px_rgba(0,0,0,0.7)]">
+      <div className="relative z-10 flex items-center justify-center w-full h-full bg-black bg-opacity-30 before:content-[''] before:absolute before:inset-0 before:box-border before:shadow-[inset_0_0_150px_rgba(0,0,0,0.6)]">
         <div className="text-white p-4 md:p-8 relative">
 
           <h1 className="text-4xl font-bold md:text-5xl lg:text-6xl mb-6 text-shadow-lg">
