@@ -76,7 +76,7 @@ async function categorizeAndSummarize(url: string) {
       "Impacts": "תקציר תמציתי של ההשפעות המיועדות של הצעת החוק"
   }
 
-  * הערות: ספק את האובייקט עצמו ללא סימנים נוספים כמו נקודות ופסיקים.
+  * הערות: ספק את האובייקט עצמו, ללא סימנים נוספים. וודא כי כל תו גרש מטופל נכון כדי שהטקסט ייפרש נכון בפורמט JSON.
   `;
 
 
@@ -129,7 +129,7 @@ async function processBills() {
   const cursor = Bill.find({}).cursor();
   for (let bill = await cursor.next(); bill != null; bill = await cursor.next()) {
       console.log("Processing bill: ", bill.BillID);
-      if (bill.FilePath) {
+      if (bill.Category) {
           console.log("Bill already processed: ", bill.BillID);
           continue;
       }
