@@ -19,7 +19,7 @@ const Ranking = () => {
             חברי כנסת שיזמו יותר הצעות חוק
           </span>
         </div>
-        <div className={`grid grid-cols-3 gap-8 p-6`}>
+        <div className={`grid grid-cols-3  p-6`}>
           {Initiators.length > 0 &&
             Initiators.map((initiator: number, index: number) => {
               const memberData = members.find(

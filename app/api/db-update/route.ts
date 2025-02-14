@@ -20,7 +20,8 @@ interface BillInitiator {
   LastUpdatedDate: Date;
 }
 
-
+let filePathErrors = 0;
+let categorizeAndSummarizeErrors = 0;
 
 async function fetchFilePath(bill: typeof Bill.prototype) {
   const response = await axios('https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_DocumentBill()?$filter=BillID eq ' + bill.BillID);
@@ -129,18 +130,26 @@ async function processBills() {
   const cursor = Bill.find({}).cursor();
   for (let bill = await cursor.next(); bill != null; bill = await cursor.next()) {
       console.log("Processing bill: ", bill.BillID);
-      if (bill.Category) {
+      if (bill.Summary) {
           console.log("Bill already processed: ", bill.BillID);
           continue;
       }
-      const filePath = await fetchFilePath(bill);
-      bill.FilePath = filePath;   
-      console.log("File path: ", filePath);
+      const filePath = bill.FilePath;
+      if(!bill.FilePath){
+        const filePath = await fetchFilePath(bill);
+        if (!filePath) {
+          filePathErrors++;
+          console.error('Error fetching file path for bill:', bill.BillID);
+          continue;
+        }
+      }
+
       let llmResponse;
       if (filePath){
         try{
           llmResponse = await categorizeAndSummarize(filePath);
         } catch (error) {
+          categorizeAndSummarizeErrors++;
           console.error('Error processing catergorizeAndSummarize:', error);
           llmResponse = null;
         }
@@ -238,7 +247,7 @@ export async function GET() {
     for (const bill of storedBills) {
       const exists = fetchedBills.some((apiBill: typeof Bill.prototype) => apiBill.BillID == bill.BillID);
       if (!exists) {
-        //await Bill.findByIdAndDelete(bill.BillID);
+        await Bill.findOneAndDelete({ BillID: bill.BillID });
         console.log(`Removed bill ${bill.BillID}`);
         deletedBillsCounter++;
       }
@@ -250,7 +259,7 @@ export async function GET() {
     for (const bill of fetchedBills) {
       const exists = storedBills.some(storedBill => storedBill.BillID == bill.BillID);
       if (!exists) {
-        //await Bill.insert(bill);
+        await Bill.create(bill);
         console.log(`Inserted bill ${bill.BillID}`);
         insertedBillsCounter++;
       }
@@ -260,6 +269,8 @@ export async function GET() {
     await processBills();
     const storedBillsNew = await Bill.find({});
     console.log(`bills in database after processing: ${storedBillsNew.length}`);
+    console.log(`filePathErrors: ${filePathErrors}`);
+    console.log(`categorizeAndSummarizeErrors: ${categorizeAndSummarizeErrors}`);
 
     return NextResponse.json({ success: true });
   } catch (error) {

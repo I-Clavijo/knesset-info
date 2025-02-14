@@ -29,7 +29,7 @@ const BillCard = ({
     <Link href={`/bill/${BillID}`} legacyBehavior>
       <Card
         href="#"
-        className={` max-w-sm cursor-pointer transform transition-transform hover:scale-105 bg-gradient-to-r from-sky-700 ${colorClass}`}
+        className={`h-full max-w-sm cursor-pointer transform transition-transform hover:scale-105 bg-gradient-to-r from-sky-700 ${colorClass}`}
       >
         <div className="flex flex-col h-full">
           <div className="flex-grow">

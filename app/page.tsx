@@ -103,8 +103,8 @@ export default function Home() {
           ? `/api/bills?category=${selectedCategory}`
           : "/api/bills";
         const response = await fetch(url);
-        const resp = (await fetch("/api/db-update")).text();
-        console.log(resp);
+        //fetch("/api/db-update");
+
         const result = await response.json();
         setBills(result.bills);
       } catch (error) {
