@@ -18,7 +18,7 @@ const BillCardPage = ({
   FilePath = "",
 }: Bill) => {
   return (
-    <div className="flex flex-wrap gap-4 min-h-screen p-4">
+    <div className="flex flex-wrap gap-4 min-h-screen p-1">
       {/* Bill Details Card */}
       <Card className="max-w-lg">
         <div className="flex flex-col h-full space-y-4">

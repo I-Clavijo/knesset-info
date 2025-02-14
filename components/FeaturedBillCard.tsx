@@ -43,8 +43,8 @@ const BillCard = ({
             </p>
             <hr className="my-2 border-white/20" />{" "}
             <p className="font-normal text-white/80">
-              {Summary.length > 100
-                ? `${Summary.substring(0, 100)}...`
+              {Summary.length > 130
+                ? `${Summary.substring(0, 130)}...`
                 : Summary}
             </p>
           </div>

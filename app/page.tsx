@@ -8,8 +8,8 @@ import { Spinner } from "flowbite-react";
 import myCategories from "./categories";
 import Stats from "@/components/Stats";
 import FeaturedBillCardGrid from "@/components/FeaturedBillCardGrid";
-
 import { useState, useEffect } from "react";
+import { Bill } from "@/types/bill";
 
 interface Category {
   id: number;
@@ -31,64 +31,27 @@ const statsData = [
   },
 ];
 
-const featuredBills = [
-  {
-    BillID: 1,
-    Name: "הצעת חוק השידור הציבורי הישראלי ",
-    LastUpdatedDate: new Date(),
-    Summary: "אין תקציר",
-    Initiators: [467],
-    Category: "1",
-    KnessetNum: 25,
-    MainInstructions: "",
-    Impacts: "",
-    VotesUp: 0,
-    VotesDown: 0,
-    Status: "pending",
-    Comments: 0,
-    FilePath: "",
-    color: "blue",
-  },
-  {
-    BillID: 2,
-    Name: "הצעת חוק-יסוד: השפיטה (תיקון- סמכויות שיפוט ותקנות סדרי דין באישור ועדה)ללא שם",
-    LastUpdatedDate: new Date(),
-    Summary: "אין תקציר",
-    Initiators: [467],
-    Category: "1",
-    KnessetNum: 25,
-    MainInstructions: "",
-    Impacts: "",
-    VotesUp: 0,
-    VotesDown: 0,
-    Status: "pending",
-    Comments: 0,
-    FilePath: "",
-  },
-  {
-    BillID: 3,
-    Name: "הצעת חוק-יסוד: השפיטה (תיקון- סמכויות שיפוט ותקנות סדרי דין באישור ועדה)ללא שם",
-    LastUpdatedDate: new Date(),
-    Summary:
-      "כגשדכדגדדד דדדדדדדדדד דדדדדד דגשדכש דגגגגג גגגגגגגגגגג גגגגגגג גגגגג גגגדשג שדגשדגשד גשדכשדכשגגכ שדגשדגש דגשדגשד גשדשדדד דדדדדדדדד דדדדדדדד דדדד",
-    Initiators: [467],
-    Category: "1",
-    KnessetNum: 25,
-    MainInstructions: "",
-    Impacts: "",
-    VotesUp: 0,
-    VotesDown: 0,
-    Status: "pending",
-    Comments: 0,
-    FilePath: "",
-  },
-];
+const featuredBillsIDs = [2224080, 2196154, 2196837];
 
 export default function Home() {
   const [bills, setBills] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+  const [featuredBills, setFeaturedBills] = useState<Bill[] | null>(null);
+
+  useEffect(() => {
+    const fetchFeaturedBills = async () => {
+      const fetchedFeaturedBills = [];
+      for (const billID of featuredBillsIDs) {
+        const response = await fetch(`/api/bill/${billID}`);
+        const data = await response.json();
+        fetchedFeaturedBills.push(data.bill);
+      }
+      setFeaturedBills(fetchedFeaturedBills);
+    };
+    fetchFeaturedBills();
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("flowbite-theme-mode", "dark");
@@ -126,7 +89,7 @@ export default function Home() {
       <Hero />
       <Stats stats={statsData} />
       <div className="flex">
-        <FeaturedBillCardGrid bills={featuredBills} />
+        <FeaturedBillCardGrid bills={featuredBills ?? []} />
       </div>
       <Categories
         categories={myCategories}

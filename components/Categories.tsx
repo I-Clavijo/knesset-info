@@ -62,7 +62,7 @@ const Categories: React.FC<CategoriesProps> = ({
       <div
         ref={scrollContainerRef}
         className={`flex m-3 ${
-          isMobile ? "mx-4" : "mx-11 ml-12"
+          isMobile ? "ml-0 mr-4" : "mx-11 ml-12"
         } overflow-x-auto scrollbar-hide`}
         style={{
           scrollbarWidth: "none",
