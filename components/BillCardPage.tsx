@@ -52,13 +52,14 @@ const BillCardPage = ({
             </p>
           </section>
 
+          {/*
           <section>
             <h2 className="font-semibold text-gray-700 dark:text-white">
               השפעות:
             </h2>
             <p className="text-gray-700 dark:text-gray-400">{Impacts}</p>
           </section>
-
+*/}
           <hr className="border-gray-300 dark:border-gray-600" />
 
           <section>
