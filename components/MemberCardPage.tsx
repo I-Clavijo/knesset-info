@@ -1,39 +1,72 @@
 "use client";
 
-//import type { Bill } from "@/types/bill";
 import { Card } from "flowbite-react";
 import React from "react";
 import Image from "next/image";
-//import members from "../app/members";
-//import myCategories from "../app/categories";
+import { PieChart } from "react-minimal-pie-chart";
 
-const member = {
-  FirstName: "ללא שם",
-  LastName: "ללא שם",
-};
+interface MemberProps {
+  member: {
+    PersonID: number;
+    LastName: string;
+    FirstName: string;
+    categoryCounts: {
+      categoryId: number;
+      categoryName: string;
+      count: number;
+    }[];
+  } | null;
+}
 
-const MemberCardPage = () => {
+const MemberCardPage = ({ member }: MemberProps) => {
   return (
-    <div className="flex flex-wrap gap-4 min-h-screen p-1">
-      <Card className="max-w-lg">
-        <div className="grid grid-cols-3 gap-4 p-4">
-          <div className="flex flex-col items-center">
+    <Card className="flex justify-center items-center p-6 shadow-lg rounded-lg">
+      <div className="flex flex-col md:flex-row w-full md:items-center">
+        {/* Member Image and Info */}
+        <div className="p-6 flex flex-col items-center text-center">
+          <div className="relative p-2 rounded-xl backdrop-filter backdrop-blur-lg bg-white/5 border border-gray-800/90 shadow-lg">
             <Image
-              src={`/images/knessetMembers/427.jpeg`}
-              alt={`${member.FirstName} ${member.LastName}`}
-              width={100}
-              height={100}
-              className="rounded-lg"
+              src={`/images/knessetMembers/${member?.PersonID}.jpeg`}
+              alt={`${member?.FirstName} ${member?.LastName}`}
+              width={120}
+              height={120}
+              className="rounded-lg shadow-md"
+              priority
             />
-            <div className="text-center mt-2">
-              <span className="text-gray-700 dark:text-gray-400">
-                {member.FirstName} {member.LastName}
-              </span>
+            <div className="mt-4 text-lg font-semibold text-gray-800 dark:text-gray-200">
+              {member?.FirstName} {member?.LastName}
             </div>
           </div>
         </div>
-      </Card>
-    </div>
+
+        {/* Pie Chart Section */}
+        <div className="flex-1 ">
+          <PieChart
+            data={
+              member?.categoryCounts.map((category) => ({
+                title: category.categoryName,
+                value: category.count,
+                color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+              })) || []
+            }
+            label={({ dataEntry }) =>
+              dataEntry.value > 2 ? dataEntry.title : ""
+            }
+            labelStyle={() => ({
+              fill: "#fff",
+              fontSize: "6px",
+              paintOrder: "stroke",
+              stroke: "#000",
+              strokeWidth: "1px",
+            })}
+            animate={true}
+            animationDuration={1000}
+            radius={42}
+            lineWidth={50}
+          />
+        </div>
+      </div>
+    </Card>
   );
 };
 

@@ -16,7 +16,8 @@
     "react-type-animation": "^3.2.0",
     "axios": "^1.7.9",
     "openai": "4.80.1",
-    "mammoth": "^1.9.0"
+    "mammoth": "^1.9.0",
+    "react-minimal-pie-chart": "^9.1.0" 
 
   },
   "devDependencies": {

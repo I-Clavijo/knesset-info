@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 //import { Bill } from "@/types/bill";
 import { Spinner } from "flowbite-react";
 import MemberCardPage from "@/components/MemberCardPage";
+import members from "@/app/members";
+import categories from "@/app/categories";
 
 export default function MemberPage({
   params,
@@ -15,6 +17,16 @@ export default function MemberPage({
 
   const [isLoading, setIsLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
+  const [member, setMember] = React.useState<{
+    PersonID: number;
+    LastName: string;
+    FirstName: string;
+    categoryCounts: {
+      categoryId: number;
+      categoryName: string;
+      count: number;
+    }[];
+  } | null>(null);
 
   useEffect(() => {
     const fetchBills = async () => {
@@ -23,7 +35,35 @@ export default function MemberPage({
       try {
         const response = await fetch("/api/bills");
         const data = await response.json();
-        console.log(data);
+        const bills = data.bills;
+
+        const result = members.map((member) => {
+          const categoryCounts = categories.map((category) => {
+            const count = bills.filter(
+              (bill: { Category: number; Initiators: number[] }) =>
+                bill.Category === category.id &&
+                bill.Initiators.includes(member.PersonID)
+            ).length;
+
+            return {
+              categoryId: category.id,
+              categoryName: category.name,
+              count: count,
+            };
+          });
+
+          return {
+            PersonID: member.PersonID,
+            LastName: member.LastName,
+            FirstName: member.FirstName,
+            categoryCounts: categoryCounts,
+          };
+        });
+
+        const foundMember =
+          result.find((member) => member.PersonID === Number(id)) || null;
+        setMember(foundMember);
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (err: any) {
         setError(err.message);
@@ -44,7 +84,7 @@ export default function MemberPage({
           ) : error ? (
             error
           ) : (
-            <MemberCardPage />
+            <MemberCardPage member={member} />
           )}
         </h1>
       </main>

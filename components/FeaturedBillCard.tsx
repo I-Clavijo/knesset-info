@@ -25,11 +25,11 @@ const BillCard = ({
     <Link href={`/bill/${BillID}`} legacyBehavior>
       <Card
         href="#"
-        className={`h-full flex flex-col cursor-pointer transform transition-transform hover:scale-105 bg-gradient-to-r from-teal-600 ${colorClass}`}
+        className={`min-h-60 h-full flex flex-col cursor-pointer transform transition-transform hover:scale-105 bg-gradient-to-r from-teal-600 ${colorClass}`}
       >
-        <div className="flex flex-col flex-grow">
+        <div className="flex flex-col h-full">
           <h5 className="text-white">{Name}</h5>
-          <p className="font-normal text-white/80">
+          <p className="font-normal text-sm text-white/70">
             {new Date(LastUpdatedDate).toLocaleDateString("en-GB", {
               day: "2-digit",
               month: "2-digit",
@@ -37,9 +37,9 @@ const BillCard = ({
             })}
           </p>
           <hr className="my-2 border-white/20" />
-          <p className="font-normal text-white/80 ">
-            {Summary.length >70 ? Summary.slice(0,70) + "..." : Summary}
-          </p>
+          <div className="flex-grow ">
+            <p className="font-normal text-white/80 line-clamp-3">{Summary}</p>
+          </div>
         </div>
       </Card>
     </Link>

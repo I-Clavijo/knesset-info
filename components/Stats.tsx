@@ -23,26 +23,12 @@ const Stats: React.FC<StatsProps> = ({ stats }) => {
 };
 
 const StatCard: React.FC<StatItem> = ({ targetNumber, title }) => {
-  /*
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (count < targetNumber) {
-      const interval = setInterval(() => {
-        setCount((prevCount) => prevCount + 1);
-      }, 1);
-
-      return () => clearInterval(interval);
-    }
-  }, [count, targetNumber]);
-
-  */
 
   return (
-    <Card className=" text-center text-black dark:text-gray-300 flex-1 min-h-full h-full">
-      <div className="flex flex-col items-center">
-        <h2 className="text-sm font-bold">{targetNumber}</h2>
-        <h3 className="text-sm font-semibold">{title}</h3>
+    <Card className=" text-center text-black dark:text-gray-300  h-full">
+      <div className="h-full flex flex-col items-center">
+        <h2 className="text-xs md:text-lg lg:text-md font-bold">{targetNumber}</h2>
+        <h3 className="text-xs md:text-base lg:text-md font-semibold">{title}</h3>
       </div>
     </Card>
   );

@@ -15,7 +15,7 @@ const BillCardGrid = ({ bills, topMembers }: BillCardGridProps) => {
     <div className="flex mt-4 rounded-lg">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mx-4 w-full">
         {bills.map((bill, index: number) => (
-          <div key={bill.BillID} className=" h-full flex">
+          <div key={bill.BillID} >
             <BillCard {...bill} color={colors[index % colors.length]} />
           </div>
         ))}

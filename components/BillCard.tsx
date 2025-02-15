@@ -60,7 +60,7 @@ Bill) => {
     <Link href={`/bill/${BillID}`} legacyBehavior>
       <Card
         href="#"
-        className="max-w-sm cursor-pointer transform transition-transform hover:scale-105"
+        className="max-w-lg cursor-pointer transform transition-transform hover:scale-105"
       >
         <div className="flex flex-col h-full">
           <div className="flex-grow">

@@ -19,7 +19,7 @@ interface Category {
 const statsData = [
   {
     targetNumber: 4771,
-    title: "בדיון מקודם",
+    title: "בדיון מקודם (בעבודה)",
   },
   {
     targetNumber: 307,
