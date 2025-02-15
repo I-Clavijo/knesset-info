@@ -14,29 +14,28 @@ const Ranking = ({ topMembers }: RankingProps) => {
     <Card className="w-full h-full flex flex-col bg-gradient-to-r from-slate-500 to-green-900 shadow-lg hover:shadow-xl transition-shadow duration-300">
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-center ">
-          <h2 className="mb-3 text-center text-lg font-bold tracking-tight text-white">
+          <h2 className="mb-3 text-center text-md font-bold tracking-tight text-white">
             מובילי מספר הצעות חוק
           </h2>
         </div>
 
         <div className="grid grid-cols-3 gap-1">
+
           {topMembers?.length > 0 &&
             topMembers?.map(([initiator, count], index: number) => {
-              const memberData = members.find(
-                (member) => member.PersonID === parseInt(initiator)
-              );
-              if (!memberData) return null;
 
-              {
-                /*
+                const memberData = members.find((member) => member.PersonID === parseInt(initiator)
+              );
+            if (!memberData) return null;
+
+          {/*
           {topMembers?.length > 0 &&
             topMembers?.map((initiator: number, index: number) => {
               const memberData = members.find(
                 (member) => member.PersonID === initiator
               );
               if (!memberData) return null;
-*/
-              }
+*/}
               return (
                 <div
                   key={initiator}

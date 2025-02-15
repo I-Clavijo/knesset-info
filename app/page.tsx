@@ -106,7 +106,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+
       <Stats stats={statsData} />
+
       <div className="flex">
         <FeaturedBillCardGrid
           bills={featuredBills ?? []}
