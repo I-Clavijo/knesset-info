@@ -5,7 +5,7 @@ import Ranking from "./Ranking";
 
 interface BillCardGridProps {
   bills: Bill[];
-  topMembers: number[];
+  topMembers: [string, number][];
 }
 const BillCardGrid = ({ bills, topMembers }: BillCardGridProps) => {
   const colors: string[] = ["blue", "green", "slate"];

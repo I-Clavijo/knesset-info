@@ -39,7 +39,9 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [featuredBills, setFeaturedBills] = useState<Bill[] | null>(null);
-  const [membersRanking, setMembersRanking] = useState<number[] | null>(null);
+  const [membersRanking, setMembersRanking] = useState<
+    [string, number][] | null
+  >(null);
 
   useEffect(() => {
     const fetchFeaturedBills = async () => {
@@ -82,9 +84,7 @@ export default function Home() {
 
         const sortedInitiators = Object.entries(counts)
           .sort(([, a], [, b]) => b - a)
-          .slice(0, 3)
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          .map(([key, _]) => parseInt(key));
+          .slice(0, 3);
 
         setMembersRanking(sortedInitiators);
 
@@ -108,7 +108,10 @@ export default function Home() {
       <Hero />
       <Stats stats={statsData} />
       <div className="flex">
-        <FeaturedBillCardGrid bills={featuredBills ?? []} topMembers={membersRanking ?? []} />
+        <FeaturedBillCardGrid
+          bills={featuredBills ?? []}
+          topMembers={membersRanking ?? []}
+        />
       </div>
       <Categories
         categories={myCategories}

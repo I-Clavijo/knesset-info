@@ -6,11 +6,10 @@ import Image from "next/image";
 import members from "@/app/members";
 
 interface RankingProps {
-  topMembers: number[];
+  topMembers: [string, number][];
 }
 
 const Ranking = ({ topMembers }: RankingProps) => {
-  const numberOfBills = 3;
   return (
     <Card className="w-full h-full flex flex-col bg-gradient-to-r from-slate-500 to-green-900 shadow-lg hover:shadow-xl transition-shadow duration-300">
       <div className="flex flex-col h-full">
@@ -22,12 +21,22 @@ const Ranking = ({ topMembers }: RankingProps) => {
 
         <div className="grid grid-cols-3 gap-1">
           {topMembers?.length > 0 &&
+            topMembers?.map(([initiator, count], index: number) => {
+              const memberData = members.find(
+                (member) => member.PersonID === parseInt(initiator)
+              );
+              if (!memberData) return null;
+
+              {
+                /*
+          {topMembers?.length > 0 &&
             topMembers?.map((initiator: number, index: number) => {
               const memberData = members.find(
                 (member) => member.PersonID === initiator
               );
               if (!memberData) return null;
-
+*/
+              }
               return (
                 <div
                   key={initiator}
@@ -55,7 +64,7 @@ const Ranking = ({ topMembers }: RankingProps) => {
                       {memberData.FirstName} {memberData.LastName}
                     </span>
                     <p className="text-xs font-medium text-gray-300">
-                      {numberOfBills} הצעות חוק
+                      {count} הצעות חוק
                     </p>
                   </div>
                 </div>
