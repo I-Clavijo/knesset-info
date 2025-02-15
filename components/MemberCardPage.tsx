@@ -20,7 +20,7 @@ interface MemberProps {
 
 const MemberCardPage = ({ member }: MemberProps) => {
   return (
-    <Card className="flex justify-center items-center p-6 shadow-lg rounded-lg">
+    <Card className="flex justify-center items-center  shadow-lg rounded-lg">
       <div className="flex flex-col md:flex-row w-full md:items-center">
         {/* Member Image and Info */}
         <div className="p-6 flex flex-col items-center text-center">
@@ -50,7 +50,7 @@ const MemberCardPage = ({ member }: MemberProps) => {
               })) || []
             }
             label={({ dataEntry }) =>
-              dataEntry.value > 2 ? dataEntry.title : ""
+              dataEntry.value > 1 ? dataEntry.title : ""
             }
             labelStyle={() => ({
               fill: "#fff",

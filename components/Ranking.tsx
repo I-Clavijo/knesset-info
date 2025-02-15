@@ -20,7 +20,9 @@ const Ranking = ({ topMembers }: RankingProps) => (
 
       <div className="grid grid-cols-3 gap-1">
         {topMembers.map(([initiator, count], index) => {
-          const memberData = members.find((member) => member.PersonID === parseInt(initiator));
+          const memberData = members.find(
+            (member) => member.PersonID === parseInt(initiator)
+          );
           if (!memberData) return null;
 
           return (
@@ -40,7 +42,7 @@ const Ranking = ({ topMembers }: RankingProps) => (
                   </div>
                 </div>
                 <div className="text-center">
-                  <span className="text-[10px] sm:text-xs font-bold text-white drop-shadow-md">
+                  <span className="text-xs sm:text-xs font-bold text-white drop-shadow-md">
                     {memberData.FirstName} {memberData.LastName}
                   </span>
                   <p className="text-xs font-medium text-gray-300">

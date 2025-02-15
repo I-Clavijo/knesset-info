@@ -6,13 +6,14 @@ import React from "react";
 import Image from "next/image";
 import members from "../app/members";
 import myCategories from "../app/categories";
+import Link from "next/link";
 
 const BillCardPage = ({
   Name = "ללא שם",
   LastUpdatedDate = new Date(),
   Summary = "אין תקציר",
   MainInstructions = "אין הוראות ראשיות",
-  Impacts = "אין השפעות",
+  //Impacts = "אין השפעות",
   Initiators = [],
   Category = "ללא קטגוריה",
   FilePath = "",
@@ -100,24 +101,26 @@ const BillCardPage = ({
                   (member) => member.PersonID === initiator
                 );
                 return (
-                  <div key={initiator} className="flex flex-col items-center">
-                    <Image
-                      src={`/images/knessetMembers/${initiator}.jpeg`}
-                      alt={
-                        member
-                          ? `${member.FirstName} ${member.LastName}`
-                          : "יזם"
-                      }
-                      width={100}
-                      height={100}
-                      className="rounded-lg"
-                    />
-                    <div className="text-center mt-2">
-                      <span className="text-gray-700 dark:text-gray-400">
-                        {member?.FirstName} {member?.LastName}
-                      </span>
+                  <Link href={`/member/${initiator}`} key={initiator}>
+                    <div className="cursor-pointer flex flex-col items-center">
+                      <Image
+                        src={`/images/knessetMembers/${initiator}.jpeg`}
+                        alt={
+                          member
+                            ? `${member.FirstName} ${member.LastName}`
+                            : "יזם"
+                        }
+                        width={100}
+                        height={100}
+                        className="rounded-lg"
+                      />
+                      <div className="text-center mt-2">
+                        <span className="text-gray-700 dark:text-gray-400">
+                          {member?.FirstName} {member?.LastName}
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })
             ) : (
