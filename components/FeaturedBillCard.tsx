@@ -36,10 +36,11 @@ const BillCard = ({
               year: "numeric",
             })}
           </p>
+
           <hr className="my-2 border-white/20" />
-            <p className="font-normal text-white/80 overflow-hidden">
-            {Summary.length > 200 ? Summary.slice(0, 130) + '...' : Summary}
-            </p>
+          <p className="font-normal text-white/80 overflow-hidden">
+            {Summary.length > 200 ? Summary.slice(0, 130) + "..." : Summary}
+          </p>
         </div>
       </Card>
     </Link>

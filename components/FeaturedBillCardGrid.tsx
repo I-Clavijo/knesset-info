@@ -9,6 +9,7 @@ interface BillCardGridProps {
 }
 const BillCardGrid = ({ bills, topMembers }: BillCardGridProps) => {
   const colors: string[] = ["blue", "green", "slate"];
+  const isDataLoaded = bills.length > 0 && topMembers.length > 0;
 
   return (
     <div className="flex mt-4 rounded-lg">
@@ -18,9 +19,11 @@ const BillCardGrid = ({ bills, topMembers }: BillCardGridProps) => {
             <BillCard {...bill} color={colors[index % colors.length]} />
           </div>
         ))}
-        <div className="col-span-full md:col-span-2 md:col-start-4 h-full flex">
-          <Ranking topMembers={topMembers} />
-        </div>
+        {isDataLoaded && (
+          <div className="col-span-full md:col-span-2 md:col-start-4 h-full flex">
+            <Ranking topMembers={topMembers} />
+          </div>
+        )}
       </div>
     </div>
   );
