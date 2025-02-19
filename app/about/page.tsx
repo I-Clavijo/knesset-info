@@ -24,7 +24,7 @@ export default function About() {
               אחר התהליכים, להבין את ההשלכות ולהביע את דעתכם בצורה מושכלת.
             </p>
           </div>
-          <section className="mb-10">
+          {/*<section className="mb-10">
             <h2 className="text-xl font-semibold text-black dark:text-gray-300 mb-4">
               למה אנחנו עושים את זה?
             </h2>
@@ -33,7 +33,7 @@ export default function About() {
               לרקע או לידע קודם. אנחנו מאמינים ששקיפות ונגישות הם המפתח לחברה
               דמוקרטית בריאה.
             </p>
-          </section>
+          </section>*/}
         </section>
       </main>
     </div>
