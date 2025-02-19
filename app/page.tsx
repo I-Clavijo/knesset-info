@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
 import Hero from "../components/Hero";
+//import useInitiateData from "../hooks/useInitiateData";
 import BillCardGrid from "../components/BillCardGrid";
 import Categories from "@/components/Categories";
 import { Spinner } from "flowbite-react";
 import myCategories from "./categories";
 import Stats from "@/components/Stats";
 import FeaturedBillCardGrid from "@/components/FeaturedBillCardGrid";
+import { useState, useEffect } from "react";
 import { Bill } from "@/types/bill";
 
 interface Category {
@@ -16,71 +17,35 @@ interface Category {
 }
 
 const statsData = [
-  { targetNumber: 4771, title: "בדיון מקודם (בעבודה)" },
-  { targetNumber: 307, title: "בקריאה ראשונה" },
-  { targetNumber: 164, title: "בקריאה שנייה ושלישית" },
+  {
+    targetNumber: 4771,
+    title: "בדיון מקודם (בעבודה)",
+  },
+  {
+    targetNumber: 307,
+    title: "בקריאה ראשונה",
+  },
+  {
+    targetNumber: 164,
+    title: "בקריאה שנייה ושלישית",
+  },
 ];
 
 const featuredBillsIDs = [2224080, 2196154, 2196837];
 
-const PAGE_SIZE = 10;
-
 export default function Home() {
-  const [bills, setBills] = useState<Bill[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [bills, setBills] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-  const [featuredBills, setFeaturedBills] = useState<Bill[]>([]);
-  const [membersRanking, setMembersRanking] = useState<[string, number][] | null>(null);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const loadMoreRef = useRef<HTMLDivElement>(null);
-
-  // Reset bills when category changes.
-  useEffect(() => {
-    setBills([]);
-    setPage(1);
-    setHasMore(true);
-  }, [selectedCategory]);
-
-  const fetchBills = useCallback(async (pageNumber: number) => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const url = selectedCategory
-        ? `/api/bills?category=${selectedCategory}&page=${pageNumber}`
-        : `/api/bills?page=${pageNumber}`;
-      const response = await fetch(url);
-      const result = await response.json();
-      setBills(prev => [...prev, ...result.bills]);
-      if (result.bills.length < PAGE_SIZE) {
-        setHasMore(false);
-      }
-      if (pageNumber === 1) {
-        const initiatorsArray: number[] = [];
-        for (const bill of result.bills) {
-          initiatorsArray.push(...bill.Initiators);
-        }
-        const counts: { [key: number]: number } = {};
-        initiatorsArray.forEach((x) => {
-          counts[x] = (counts[x] || 0) + 1;
-        });
-        const sortedInitiators = Object.entries(counts)
-          .sort(([, a], [, b]) => b - a)
-          .slice(0, 3);
-        setMembersRanking(sortedInitiators);
-      }
-    } catch (error: unknown) {
-      console.error("Error fetching data:", error);
-      setError("Error fetching data");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [selectedCategory]);
+  const [featuredBills, setFeaturedBills] = useState<Bill[] | null>(null);
+  const [membersRanking, setMembersRanking] = useState<
+    [string, number][] | null
+  >(null);
 
   useEffect(() => {
     const fetchFeaturedBills = async () => {
-      const fetchedFeaturedBills: Bill[] = [];
+      const fetchedFeaturedBills = [];
       for (const billID of featuredBillsIDs) {
         const response = await fetch(`/api/bill/${billID}`);
         const data = await response.json();
@@ -92,32 +57,47 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    fetchBills(page);
-  }, [page, fetchBills]);
+    localStorage.setItem("flowbite-theme-mode", "dark");
+    document.documentElement.classList.add("dark");
 
-  useEffect(() => {
-    if (isLoading) return;
-    if (!hasMore) return;
+    const fetchBills = async () => {
+      setIsLoading(true);
+      setError(null);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setPage(prev => prev + 1);
+      try {
+        const url = selectedCategory
+          ? `/api/bills?category=${selectedCategory}`
+          : "/api/bills";
+        const response = await fetch(url);
+        //fetch("/api/db-update");
+
+        const result = await response.json();
+
+        const initiatorsArray: number[] = [];
+        for (const bill of result.bills) {
+          initiatorsArray.push(...bill.Initiators);
         }
-      },
-      { threshold: 1 }
-    );
+        const counts: { [key: number]: number } = {};
+        initiatorsArray.forEach((x) => {
+          counts[x] = (counts[x] || 0) + 1;
+        });
 
-    const currentRef = loadMoreRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+        const sortedInitiators = Object.entries(counts)
+          .sort(([, a], [, b]) => b - a)
+          .slice(0, 3);
+
+        setMembersRanking(sortedInitiators);
+
+        setBills(result.bills);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError("Error fetching data");
+      } finally {
+        setIsLoading(false);
       }
     };
-  }, [isLoading, hasMore]);
+    fetchBills();
+  }, [selectedCategory]);
 
   const handleCategorySelection = (category: Category) => {
     setSelectedCategory(category.id);
@@ -126,30 +106,27 @@ export default function Home() {
   return (
     <>
       <Hero />
+
       <Stats stats={statsData} />
+
       <div className="flex">
         <FeaturedBillCardGrid
-          bills={featuredBills}
-          topMembers={membersRanking || []}
+          bills={featuredBills ?? []}
+          topMembers={membersRanking ?? []}
         />
       </div>
-      <Categories categories={myCategories} onCategorySelect={handleCategorySelection} />
-      {bills.length === 0 && isLoading ? (
+      <Categories
+        categories={myCategories}
+        onCategorySelect={handleCategorySelection}
+      />
+      {isLoading ? (
         <div className="flex justify-center items-center h-full ">
           <Spinner size="xl" />
         </div>
-      ) : error ? (
-        <h1>{error}</h1>
+      ) : bills ? (
+        <BillCardGrid bills={bills} />
       ) : (
-        <>
-          <BillCardGrid bills={bills} />
-          {isLoading && (
-            <div className="flex justify-center items-center pt-4">
-              <Spinner size="xl" />
-            </div>
-          )}
-          <div ref={loadMoreRef} className="h-1" />
-        </>
+        <h1>{error}</h1>
       )}
     </>
   );
