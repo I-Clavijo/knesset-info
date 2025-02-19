@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/app/api/db-update/route",
-      "schedule": "* * * * *"
+      "schedule": "0 0 * * *"
     }
   ]
 }
