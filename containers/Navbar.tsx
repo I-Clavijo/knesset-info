@@ -18,7 +18,7 @@ export default function NavbarContainer() {
       <Navbar.Toggle />
       <Navbar.Collapse>
         <p></p>
-        <Navbar.Link href="/">בית</Navbar.Link>
+        {/*<Navbar.Link href="/">בית</Navbar.Link>*/}
         <Navbar.Link href="/about">אודות</Navbar.Link>
         <Navbar.Link href="/join">הצטרף</Navbar.Link>
         <Navbar.Link href="/donate">תרומה</Navbar.Link>
