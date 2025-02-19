@@ -1,4 +1,3 @@
-//// filepath: /c:/Users/Ivanc/Documents/projects/peoples-law/app/page.tsx
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
@@ -9,6 +8,7 @@ import { Spinner } from "flowbite-react";
 import myCategories from "./categories";
 import Stats from "@/components/Stats";
 import FeaturedBillCardGrid from "@/components/FeaturedBillCardGrid";
+import { Bill } from "@/types/bill";
 
 interface Category {
   id: number;
@@ -23,15 +23,14 @@ const statsData = [
 
 const featuredBillsIDs = [2224080, 2196154, 2196837];
 
-// Adjust this to match the number of bills returned per fetch
 const PAGE_SIZE = 10;
 
 export default function Home() {
-  const [bills, setBills] = useState<any[]>([]);
+  const [bills, setBills] = useState<Bill[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-  const [featuredBills, setFeaturedBills] = useState<any[]>([]);
+  const [featuredBills, setFeaturedBills] = useState<Bill[]>([]);
   const [membersRanking, setMembersRanking] = useState<[string, number][] | null>(null);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -53,13 +52,10 @@ export default function Home() {
         : `/api/bills?page=${pageNumber}`;
       const response = await fetch(url);
       const result = await response.json();
-      // Append new bills to the existing bills list
       setBills(prev => [...prev, ...result.bills]);
-      // If less than PAGE_SIZE returned then there are no more bills.
       if (result.bills.length < PAGE_SIZE) {
         setHasMore(false);
       }
-      // Process initiators ranking only during the first fetch
       if (pageNumber === 1) {
         const initiatorsArray: number[] = [];
         for (const bill of result.bills) {
@@ -82,10 +78,9 @@ export default function Home() {
     }
   }, [selectedCategory]);
 
-  // Initial featured bills fetch
   useEffect(() => {
     const fetchFeaturedBills = async () => {
-      const fetchedFeaturedBills: any[] = [];
+      const fetchedFeaturedBills: Bill[] = [];
       for (const billID of featuredBillsIDs) {
         const response = await fetch(`/api/bill/${billID}`);
         const data = await response.json();
@@ -96,12 +91,10 @@ export default function Home() {
     fetchFeaturedBills();
   }, []);
 
-  // Fetch bills when page changes
   useEffect(() => {
     fetchBills(page);
   }, [page, fetchBills]);
 
-  // Infinite scrolling: observe the sentinel element
   useEffect(() => {
     if (isLoading) return;
     if (!hasMore) return;
