@@ -6,7 +6,7 @@ import Footer from "../containers/Footer";
 
 export const metadata: Metadata = {
   title: "Knesset Info",
-  description: "Find Proposed Laws and Bills in the Knesset",
+  description: "Find Proposed Laws in the Knesset",
 };
 
 export default function RootLayout({
@@ -22,9 +22,7 @@ export default function RootLayout({
         </head>
         <body className="flex-grow bg-gray-50 dark:bg-gray-900">
           <NavbarContainer />
-            <main className="min-h-screen">
-            {children}
-            </main>
+          <main className="min-h-screen">{children}</main>
           <footer>
             <Footer />
           </footer>

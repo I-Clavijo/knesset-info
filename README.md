@@ -1,6 +1,6 @@
 # Knesset Info
 
-Knesset Info is a Next.js web application that makes exploring proposed laws in the Knesset simple and accessible. The platform uses modern web technologies, a responsive design with Tailwind CSS and Flowbite components, and integrates with a MongoDB database via Mongoose. It also leverages AI (via DeepSeek API) to categorize and summarize bills.
+Knesset Info is a user-friendly Next.js web application designed to simplify exploration of proposed Knesset laws. It features a responsive design built with Tailwind CSS and Flowbite, utilizes a MongoDB database via Mongoose, and employs AI (DeepSeek API) for bill categorization and summarization.
 
 ## Features
 
@@ -24,7 +24,7 @@ Knesset Info is a Next.js web application that makes exploring proposed laws in 
 
 ## Getting Started
 
-### Prerequisites
+**Prerequisites:**
 
 Before running the project, ensure you have the following installed:
 
@@ -62,12 +62,6 @@ DEEPSEEK_KEY=your-deepseek-api-key
   ```
   - This will create a `.next` directory with the production build.
 
-**Testing:**
-
-- To run tests:
-  ```bash
-  npm run test
-  ```
 
 **Contributing:**
 
@@ -75,7 +69,7 @@ DEEPSEEK_KEY=your-deepseek-api-key
 
 **License:**
 
-- This project is licensed under the MIT License. See `LICENSE` for details.
+- This project is licensed under the MIT License.
 
 **Acknowledgements:**
 
