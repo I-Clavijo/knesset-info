@@ -37,3 +37,54 @@ Also, set up your environment variables in a `.env` file. For example:
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.cl3jl.mongodb.net/knessetDB
 DEEPSEEK_KEY=your-deepseek-api-key
 ```
+
+**Installation:**
+
+1.  Clone the repository:
+    ```bash
+    git clone <repository-url>
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Run the development server:
+    ```bash
+    npm run dev
+    ```
+4.  Open `http://localhost:3000` in your browser.
+
+**Production Build:**
+
+- Create an optimized production build:
+  ```bash
+  npm run build
+  ```
+  - This will create a `.next` directory with the production build.
+
+**Testing:**
+
+- To run tests:
+  ```bash
+  npm run test
+  ```
+
+**Contributing:**
+
+- Contributions are welcome! Please open an issue or submit a pull request.
+
+**License:**
+
+- This project is licensed under the MIT License. See `LICENSE` for details.
+
+**Acknowledgements:**
+
+- Next.js
+- Tailwind CSS
+- Flowbite React
+- MongoDB
+- DeepSeek API
+
+**Feedback:**
+
+- Thank you for using Knesset Info! Please feel free to reach out with any questions or feedback.
